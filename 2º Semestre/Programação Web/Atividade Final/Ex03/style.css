@@ -1,0 +1,21 @@
+input{
+    margin-top: -10px;
+    border-radius: 8px;
+    padding: 5px;
+    border-color: rgb(128, 99, 255);
+    background-color: rgb(238, 238, 255);
+}
+
+.passou{
+    color: green;
+    font-weight: 600;
+}
+
+.button-calcular{
+    background-color: blueviolet;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: none;
+    color: #ffff;
+}

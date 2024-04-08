@@ -1,0 +1,49 @@
+<script>
+    
+  alert("Teste com CAPS LOCK")
+
+  let gabarito = []
+
+  for (let i = 0; i < 5; i++) {
+    let alternativa = prompt(`Informe a alternativa correta (A, B ou C) para a questão ${i + 1}:`)
+      
+  while (alternativa != "A" && alternativa != "B" && alternativa != "C") {
+    let alternativa = prompt(`Alternativa inválida! Informe a alternativa correta (A, B ou C) para a questão ${i + 1}:`)
+  }
+        
+  gabarito.push(alternativa)
+
+  } 
+  
+  let turma = parseInt(prompt("Informe o número de alunos da turma:"))
+
+  while (turma <= 0) {
+    turma = parseInt(prompt("Número de alunos inválido! Informe o número de alunos da turma:"))
+  }
+  
+  let aprovados = 0
+  let reprovados = 0
+  
+  for (let i = 0; i < turma; i++) {
+    let nota = 0
+    for (let j = 0; j < 5; j++) {
+      let resposta = prompt(`Informe a resposta do aluno ${i + 1} para a questão ${j + 1} (A, B ou C):`)
+      while (resposta != "A" && resposta != "B" && resposta != "C") {
+        resposta = prompt(`Resposta inválida! Informe a resposta do aluno ${i + 1} para a questão ${j + 1} (A, B ou C):`)
+      }
+      if (resposta === gabarito[j]) {
+        nota += 2
+      }
+    }
+  
+    if (nota >= 7) {
+      aprovados++
+    } else {
+      reprovados++
+    }
+  }
+  
+  document.write(`Quantidade de alunos aprovados é de ${aprovados} <br>`)
+  document.write(`Quantidade de alunos reprovados é de ${reprovados}`)
+      
+  </script>

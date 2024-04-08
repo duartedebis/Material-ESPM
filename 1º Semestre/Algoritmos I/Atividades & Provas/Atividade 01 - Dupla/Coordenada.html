@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+<script>
+
+    //Aqui estão as variáveis que serão usadas e armazenadas
+    let valorx, valory
+
+    //Aqui é onde o usuário digitará as coordenadas que serão usadas em X e Y e elas são armazenadas 
+    //em suas respectivas variáveis
+    valorx = parseFloat(prompt("Informe a coordenada X (use apenas uma casa decimal): "))
+    valory = parseFloat(prompt("Informe a coordenada Y (use apenas uma casa decimal): "))
+
+    //Aqui primeiro testamos os Quadrantes (cada um) e se for um deles indicamos ao usuário
+    if(valorx > 0 && valory > 0) {
+        alert("Pertence ao Quadrante 1")
+    } 
+    else if(valorx < 0 && valory > 0) {
+        alert("Pertence ao Quadrante 2")
+    }
+    else if(valorx < 0 && valory < 0) {
+        alert("Pertence ao Quadrante 3")
+    }
+    else if(valorx > 0 && valory < 0) {
+        alert("Pertence ao Quadrante 4")
+    }
+    //Agora se não for nenhum quadrante testamos os Eixos e se for algum indicamos ao usuário
+    else if(valorx == 0 && valory > 0 || valory < 0) {
+        alert("Está sobre o Eixo Y")
+    }
+    else if(valory == 0 && valorx > 0 || valorx <0) {
+        alert("Está sobre o Eixo X")
+    }
+    //Agora se não for nenhum quadrante nem nenhum eixo testamos para ver se é a origem(só para ter certeza, 
+    //sabemos que não é obrigatório) e indicamos ao usuário
+    else if(valorx == 0 & valory == 0) {
+        alert("Está na Origem")
+    }
+
+</script>

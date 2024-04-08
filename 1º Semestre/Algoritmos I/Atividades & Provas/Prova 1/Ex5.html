@@ -1,0 +1,25 @@
+<meta charset="utf-8" />
+<script>
+
+    let valor_renda
+
+    valor_renda = parseFloat(prompt("Qual o valor recebido no ano anterior?"))
+
+    if(valor_renda <= 2000) {
+        alert("Isento de IR")
+    }
+    else if(valor_renda <= 3000) {
+
+        valor_renda = (valor_renda - 2000) * 0.08
+        alert("Seu IR é de R$" + valor_renda.toFixed(2))
+    }
+    else if(valor_renda <= 4500) {
+        valor_renda = (valor_renda - 3000) * 0.18 + 80
+        alert("Seu IR é de R$" + valor_renda.toFixed(2))
+    }
+    else if(valor_renda > 4500) {
+        valor_renda = (valor_renda - 4500) * 0.28 + 350
+        alert("Seu IR é de R$" + valor_renda.toFixed(2))
+    }
+
+</script>

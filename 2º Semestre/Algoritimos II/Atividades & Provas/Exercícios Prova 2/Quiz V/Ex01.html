@@ -1,0 +1,30 @@
+<script>
+    // Função para calcular a média de um array 
+    function calcularMedia(array) { 
+        const soma = array.reduce((acc, num) => acc + num, 0); 
+        return soma / array.length;
+    }
+
+    // Função para calcular o desvio padrão de um array
+    function calcularDesvioPadrao(array) { 
+        const media = calcularMedia(array);
+
+        // Calcula o quadrado das diferenças entre cada elemento e a média 
+        const diferencaQuadrado = array.map(num => Math.pow(num - media, 2));
+
+        // Calcula a média dos quadrados 
+        const mediaQuadrados = calcularMedia(diferencaQuadrado);
+
+        // Calcula a raiz quadrada da média dos quadrados para obter o desvio padrão 
+        const desvioPadrao = Math.sqrt(mediaQuadrados);
+
+        return desvioPadrao;
+    }
+
+    // Exemplo de array de números
+    const numeros = [1, 2, 3, 4, 5];
+
+    // Calcula e imprime o desvio padrão 
+    const desvioPadrao = calcularDesvioPadrao(numeros); 
+    console.log(`O desvio padrão é: ${desvioPadrao.toFixed(2)}`);
+</script>

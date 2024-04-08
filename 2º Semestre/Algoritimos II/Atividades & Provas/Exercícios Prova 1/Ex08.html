@@ -1,0 +1,22 @@
+<script>
+    // Escreva um programa que leia os dados de uma matriz quadrada. Em seguida o programa deverá
+    // calcular e imprimir no terminal a soma dos elementos acima da diagonal principal. Veja o exemplo
+    // mostrado na tabela a seguir. A soma dos elementos é 10.
+
+    let matriz = new Array(4)
+    let soma = 0 
+
+    for(let i = 0; i < matriz.length; i++){
+        matriz[i] = new Array(4)
+        for(let j = 0; j < matriz.length; j++) { 
+                matriz[i][j] = parseInt(Math.random() * 5) // será gerado número de até 5
+                if(j > i){
+                    soma += matriz[i][j]
+                }
+            }
+        }
+
+    console.table(matriz)
+    console.log("Soma: " + soma)
+    
+</script>

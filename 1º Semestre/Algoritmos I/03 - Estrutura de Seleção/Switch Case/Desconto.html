@@ -1,0 +1,41 @@
+<!-- Escreva um programa que calcule o valor que deve ser pago por um produto
+considerando o preço normal de etiqueta e a escolha da condição de
+pagamento. Utilize os códigos da tabela a seguir para ler qual a condição de
+pagamento escolhida e efetuar o cálculo adequado. -->
+
+<!-- 
+1. À vista em dinheiro ou cheque, recebe 10% de desconto1
+2. À vista no cartão de crédito, recebe 5% de desconto2
+3. Em duas vezes, preço normal da etiqueta sem jutos3
+4. Em três vezes, preço normal da etiqueta mais juros de 10% 
+-->
+
+<script>
+
+    let produto = Number(prompt("Qual o valor do produto?"))
+    let formapgmt = parseInt(prompt("Insira o código da forma de pagamento: 1, 2, 3 ou 4"))
+    let valornovo 
+
+    switch(formapgmt){
+        case 1:
+            valornovo = (produto - (produto * 0.10))
+            alert(`O valor a ser pago já com o desconto é: R$${valornovo}`)
+            break
+        case 2:
+            valornovo = (produto - (produto * 0.05))
+            alert(`O valor a ser pago já com o desconto é: R$${valornovo}`)
+            break
+        case 3:
+            valornovo = (produto / 2)
+            alert(`O valor a ser pago é R$${produto} e o valor de cada parcela é R$${valornovo}`)
+            break
+        case 4:
+            valornovo = (produto + (produto * 0.10))
+            alert(`O valor a ser pago é R$${valornovo} e o valor de cada parcela é R$${(valornovo / 3).toFixed(2)}`)
+            break
+        default: 
+        alert("Forma de pagamento inválida")
+        break
+    }
+
+</script>

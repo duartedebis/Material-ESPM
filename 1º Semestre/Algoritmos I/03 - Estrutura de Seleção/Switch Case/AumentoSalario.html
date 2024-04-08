@@ -1,0 +1,58 @@
+<script>
+
+    let salarioatual = Number(prompt("Qual o seu salário atual?"))
+    let cargo = prompt("Qual o seu cargo?")
+    let tempo = Number(prompt("Quanto tempo de serviço (em anos)?"))
+    let novosalario 
+
+
+    switch(cargo){
+        case "Gerente": 
+        
+            if (tempo >= 5){
+                novosalario = salarioatual + (salarioatual * 0.10)
+                alert(`Seu novo salário é: ${novosalario}`)
+            } else if (tempo >= 3 && tempo < 5){
+                novosalario = salarioatual + (salarioatual * 0.09)
+                alert(`Seu novo salário é: ${novosalario}`)
+            } else {
+                (tempo < 3)
+                novosalario = salarioatual + (salarioatual * 0.08)
+                alert(`Seu novo salário é: ${novosalario}`)
+            } break
+        
+        case "Engenheiro":
+        
+            if (tempo >= 5){
+                novosalario = salarioatual + (salarioatual * 0.08)
+                alert(`Seu novo salário é: ${novosalario}`)
+            } else if (tempo >= 3 && tempo < 5){
+                novosalario = salarioatual + (salarioatual * 0.11)
+                alert(`Seu novo salário é: ${novosalario}`)
+            } else {
+                (tempo < 3)
+                novosalario = salarioatual + (salarioatual * 0.10)
+                alert(`Seu novo salário é: ${novosalario}`)
+            } break
+        
+        case "Técnico":
+        
+            if (tempo >= 5){
+                novosalario = salarioatual + (salarioatual * 0.12)
+                alert(`Seu novo salário é: ${novosalario}`)
+            } else if (tempo >= 3 && tempo < 5){
+                novosalario = salarioatual + (salarioatual * 0.11)
+                alert(`Seu novo salário é: ${novosalario}`)
+            } else {
+                (tempo < 3)
+                novosalario = salarioatual + (salarioatual * 0.10)
+                alert(`Seu novo salário é: ${novosalario}`)
+            } break
+
+        default:
+        novosalario = salarioatual + (salarioatual * 0.07)
+            alert(`Seu novo salário é: ${novosalario}`)
+            break
+    }
+    
+</script>

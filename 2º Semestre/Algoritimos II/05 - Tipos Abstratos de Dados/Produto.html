@@ -1,0 +1,48 @@
+<script>
+
+    class Produto{
+        constructor(codigo, nome, preco, baixa){
+            this.codigo = codigo
+            this.nome = nome
+            this.preco = preco
+            this.baixa = baixa
+        }
+    }
+
+    // inserção de alguns produtos em uma lista
+    let lista = []
+    let nome, codigo, preco
+
+    // geração de 3 objetos do tipo produto
+    for( let i = 0;i < 3;i++) {
+        codigo = Math.random(Math.random() * 9000 + 1000)
+        nome = prompt("Produto: ")
+        preco = Number(prompt("Preço: "))
+        for(let j = 0; j < 4; j++){
+            baixa.push(Math.floor(Math.random() * 101))
+    }
+    lista.push(new Produto(codigo, nome, preco, baixa))
+
+    // produto com maior venda --> b
+    let aux, maior = 0, index = 0
+    for(let i = 0; i < lista.lenght; i++){
+        aux = 0;
+        for( let j = 0; j < lista[i].baixa.lenght; j++){
+            aux += lista[i].baixa[j]
+        }
+        if(aux > maior){
+            maior = aux
+            index = i 
+        }
+    }
+
+    // geração de 3 objetos do tipo Produto --> a
+    for(let i = 0; i < 3; i++){
+        codigo = Math.floor(Math.random() * 9000 + 1000)
+        nome = prompt("Produto: ")
+        console.log(nome)
+        preco = Number(prompt("Preço"))
+    }
+    }
+
+</script>

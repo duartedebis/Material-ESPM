@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Cards</title>
+    
+    <link rel="stylesheet" href="estilo.css">
+
+</head>
+<body>
+
+    <h1>Verifique seus Cards</h1>
+
+    <label for="card1">Valor Card 1:</label>
+    <input type="number" id="card1" min="1" max="6" required>
+    <p></p>
+    <label for="card2">Valor Card 2:</label>
+    <input type="number" id="card2" min="1" max="6" required>
+    <p></p>
+    <label for="card3">Valor Card 3:</label>
+    <input type="number" id="card3" min="1" max="6" required>
+    <p></p>
+    <label for="card4">Valor Card 4:</label>
+    <input type="number" id="card4" min="1" max="6" required>
+    <p></p>
+    <label for="card5">Valor Card 5:</label>
+    <input type="number" id="card5" min="1" max="6" required>
+    
+    <p></p>
+    <button onclick="cardFaltante()">Verificar Faltante</button>
+    <button onclick="limpar()">Limpar</button>
+
+    <div id="result"></div>
+
+    <script>
+        function cardFaltante() {
+
+            let cards = [];
+
+            for (let i = 1; i <= 5; i++) {
+                let cardValue = parseInt(document.getElementById(`card${i}`).value);
+
+                if (isNaN(cardValue) || cardValue < 1 || cardValue > 6) {
+                    displayError("Por favor, forneça valores válidos para todos os cards.");
+                    return;
+                }
+                if (cards.includes(cardValue)) {
+                    displayError("Por favor, forneça cada número de card apenas uma vez.");
+                    return;
+                }
+                cards.push(cardValue);
+            }
+            for (let i = 1; i <= 6; i++) {
+                if (!cards.includes(i)) {
+                    displayResult(`O card faltante é: ${i}`);
+                    return;
+                }
+            }
+        }
+        function limpar() {
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(`card${i}`).value = "";
+            }
+            document.getElementById('result').innerHTML = "";
+        }
+        function displayResult(message) {
+            document.getElementById('result').innerHTML = message;
+        }
+        function displayError(message) {
+            document.getElementById('result').innerHTML = `<p class="erro">${message}</p>`;
+        }
+    </script>
+
+</body>
+</html>

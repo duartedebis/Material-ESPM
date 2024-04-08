@@ -1,0 +1,89 @@
+use carloca;
+
+Select *
+  from loc_depto;
+  
+Select *
+  from loc_funcionario;
+  
+Select nm_func, nm_depto
+  from loc_funcionario
+  inner join loc_depto on loc_funcionario.cd_depto = loc_depto.cd_depto;
+  
+Select nm_cargo, nm_func
+  from loc_cargo
+  inner join loc_funcionario on loc_cargo.cd_cargo = loc_funcionario.cd_cargo;
+  
+Select nm_func, nm_depto
+  from loc_funcionario f
+  inner join loc_depto d on f.cd_depto = d.cd_depto;
+
+Select nm_func, nm_depto, nm_cargo
+  from loc_funcionario f
+  inner join loc_depto d on f.cd_depto = d.cd_depto
+  inner join loc_cargo c on f.cd_cargo = c.cd_cargo;
+  
+Select nm_func, vl_salario, nm_depto, vl_orc_depto, nm_cargo
+  from loc_funcionario f
+  inner join loc_depto d on f.cd_depto = d.cd_depto
+  inner join loc_cargo c on f.cd_cargo = c.cd_cargo;
+  
+Select nm_func, vl_salario, nm_depto, vl_orc_depto, nm_cargo
+  from loc_funcionario f
+  inner join loc_depto d on f.cd_depto = d.cd_depto
+  inner join loc_cargo c on f.cd_cargo = c.cd_cargo
+  where vl_salario > 10000 and vl_orc_depto > 20000;
+  
+Select nm_func, vl_salario, nm_depto, vl_orc_depto, nm_cargo, c.cd_cargo
+  from loc_funcionario f
+  inner join loc_depto d on f.cd_depto = d.cd_depto
+  inner join loc_cargo c on f.cd_cargo = c.cd_cargo
+  where vl_salario > 10000 and vl_orc_depto > 20000;
+  
+Select nm_func, vl_salario, nm_depto, vl_orc_depto, nm_cargo, c.cd_cargo
+  from loc_funcionario f
+  inner join loc_depto d on f.cd_depto = d.cd_depto
+  inner join loc_cargo c on f.cd_cargo = c.cd_cargo
+  where vl_salario > 10000 and vl_orc_depto > 20000
+  order by vl_salario;
+  
+Select nr_placa, nm_modelo, nm_fabricante, nm_tp_combustivelcol, nm_proprietario,
+	   desc_cor
+  from loc_veiculo v
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  inner join loc_tp_combustivel t on v.tp_combustivel = t.cd_tp_combustivel
+  inner join loc_proprietario p on v.cd_proprietario = p.cd_proprietario
+  inner join loc_cor c on v.cd_cor = c.cd_cor
+  order by nm_fabricante, nm_modelo;
+  
+Select * from loc_tp_combustivel;
+
+desc loc_tp_combustivel;
+
+Select * from loc_funcionario;
+
+-- Funcionarios e seus chefes
+-- Self Join
+Select f.nm_func, g.nm_func
+  from loc_funcionario f
+  inner join loc_funcionario g on f.cd_gerente = g.cd_func
+  order by f.nm_func;
+
+-- Funcionarios e seus chefes
+-- Self Join, mesmo que nâo tenha chefe
+Select f.nm_func, g.nm_func
+  from loc_funcionario f
+  left join loc_funcionario g on f.cd_gerente = g.cd_func
+  order by f.nm_func;
+
+-- Funcionarios e seus chefes, apenas de que nâo tem chefe
+-- Self Join, mesmo que nâo tenha chefe
+Select f.nm_func, g.nm_func
+  from loc_funcionario f
+  left join loc_funcionario g on f.cd_gerente = g.cd_func
+  where g.nm_func is null
+  order by f.nm_func;
+
+-- Gerentes e seus subordinarios
+-- Right Join, mesmo que nâo tenha chefe

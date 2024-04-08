@@ -1,0 +1,21 @@
+// Escreva um programa em JavaScript que leia um valor inteiro e positivo (o valor deverá ser testado). 
+// O seu programa deverá imprimir no vídeo todos os divisores inteiros do valor informado pelo usuário. 
+// A impressão dos valores deverá serfeito em uma função.
+
+<script>
+
+    function divisores() {
+        var num = parseInt(prompt("Digite um número inteiro e positivo: "));
+        while (num < 0) {
+            num = parseInt(prompt("Digite um número inteiro e positivo: "));
+        }
+        for (var i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                document.write(i + "<br>");
+            }
+        }
+    }
+
+    divisores();
+
+</script>

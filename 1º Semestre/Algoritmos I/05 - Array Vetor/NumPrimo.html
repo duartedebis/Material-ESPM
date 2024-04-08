@@ -1,0 +1,27 @@
+<!-- Escreva um programa em JavaScript para preencher um vetor de 1000
+posições com valores fornecidos pelo usuário. Imprima no vídeo apenas os
+números primos armazenados no vetor. Um número é primo quando ele
+tem apenas 2 divisores (1 e ele mesmo) -->
+
+<script>
+    
+    let num = []
+    let primo = []
+    let cont = 0
+    for(let i = 0; i < 1000; i++){
+        num[i] = parseInt(prompt("Insira um número"))
+    }
+    for(let i = 0; i < 1000; i++){
+        for(let j = 1; j <= num[i]; j++){
+            if(num[i] % j == 0){
+                cont++
+            }
+        }
+        if(cont == 2){
+            primo.push(num[i])
+        }
+        cont = 0
+    }
+    alert(`Números primos: ${primo}`)
+
+</script>

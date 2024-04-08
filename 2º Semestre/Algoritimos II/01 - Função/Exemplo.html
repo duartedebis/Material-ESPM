@@ -1,0 +1,17 @@
+<script>
+    let x, y, resultado
+
+    // variáveis globais
+    x = parseInt(prompt("Digite o valor de X: "))
+    y = parseInt(prompt("Digite o valor de Y: "))
+
+    resultado = somar (x, y) // argumento > valor que será enviado para a função
+    console.log(resultado)
+
+    function somar (a, b) { // parâmetro > valor que será recebido pela função
+        // variáveis locais
+        let resultado = a + b
+        return resultado
+    }
+    
+</script>

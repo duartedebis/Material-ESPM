@@ -1,0 +1,44 @@
+use carloca;
+
+-- Ex2
+-- Crie uma instrução SQL que exiba todos os dados da tabela de
+-- Proprietários. Exiba essa consulta em ordem de nome de proprietário.
+
+Select *
+  from Loc_Proprietario
+  order by Nm_Proprietario;
+  
+-- Ex12 
+-- Desenvolva uma instrução SQL que exiba os seguintes dados dos
+-- funcionários: nome, código do departamento, CPF. Apresente apenas
+-- dados cujo documento seja não nulo
+
+Select Nm_Func, Nr_CPF, Cd_Depto
+  from Loc_Funcionario
+  where nr_CPF is not null;
+  
+-- Ex20
+-- Desenvolva uma instrução SQL que exiba todos os pedidos de locação
+-- onde a data do pedido é maior do que a data de entrega ou maior do que
+-- a data de retirada ou o valor total do pedido é igual a zero. Exiba os
+-- dados adequados para realizar análise.
+  
+Select *
+  from Loc_Pedido_Locacao
+  where Dt_Locacao > Dt_Entrega or Dt_Locacao > Dt_Retirada or Vl_Total = 0;
+  
+-- Ex33
+-- Desenvolva uma instrução SQL que exiba os nomes de funcionários que
+-- tenham algum de seu nomes, prenomes ou sobrenomes terminados com
+-- a letra ‘A’, não importando se esta é maiúscula ou minúscula.
+
+Select Nm_Func
+  from Loc_Funcionario
+  where Nm_Func like '%A';
+
+-- Ex37
+-- Apresente nomes de funcionários que tenham a sílaba “si”.
+
+Select Nm_Func
+  from Loc_Funcionario
+  where Nm_Func like '%si%';

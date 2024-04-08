@@ -1,0 +1,14 @@
+<script>
+
+    let item = parseInt(prompt("Qual o total de itens comprados?"))
+    let total = parseFloat(prompt("Qual o valor da compra?"))
+
+    let desconto = total * 0.25
+
+    if(item > 15 && total > 150 ){
+        alert(`Você recebeu 25% de desconto, você economizou R$ ${desconto}, o valor a ser pago é ${total-desconto}`)
+    } else {
+        alert(`Você comprou ${item} itens e o total foi R$ ${total}`)
+    }
+
+</script>

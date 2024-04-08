@@ -1,0 +1,53 @@
+<meta charset="utf-8" />
+<script>
+  
+  let salario_atual, salario_novo, valor_ganho
+
+  salario_atual = parseFloat(prompt('Insira seu salário atual'))
+
+  if (salario_atual <= 400.00) {
+        salario_novo = (salario_atual + (salario_atual * 0.15))
+        valor_ganho = salario_novo - salario_atual
+
+        document.write('Seu novo salário é: R$ ' + salario_novo.toFixed(2)+("<br>"))
+        document.write('O valor de reajuste foi: R$ ' + valor_ganho.toFixed(2)+("<br>"))
+        document.write('O índice de aumento é de 15%')
+    } 
+    
+    else if (salario_atual >= 400.01 && salario_atual < 800.01) {
+        salario_novo = (salario_atual + (salario_atual * 0.12))
+        valor_ganho = salario_novo - salario_atual
+
+        document.write('Seu novo salário é: R$ ' + salario_novo.toFixed(2)+("<br>"))
+        document.write('O valor de reajuste foi: R$ ' + valor_ganho.toFixed(2)+("<br>"))
+        document.write('O índice de aumento é de 12%')
+    }
+
+    else if (salario_atual >= 800.01 && salario_atual <= 1200.00) {
+        salario_novo = (salario_atual + (salario_atual * 0.10))
+        valor_ganho = salario_novo - salario_atual
+
+        document.write('Seu novo salário é: R$ ' + salario_novo.toFixed(2)+("<br>"))
+        document.write('O valor de reajuste foi: R$ ' + valor_ganho.toFixed(2)+("<br>"))
+        document.write('O índice de aumento é de 10%')
+    }
+    
+    else if (salario_atual >= 1200.01 && salario_atual <= 2000.00) {
+        salario_novo = (salario_atual + (salario_atual * 0.07))
+        valor_ganho = salario_novo - salario_atual
+
+        document.write('Seu novo salário é: R$ ' + salario_novo.toFixed(2)+("<br>"))
+        document.write('O valor de reajuste foi: R$ ' + valor_ganho.toFixed(2)+("<br>"))
+        document.write('O índice de aumento é de 7%')
+    }
+
+    else if (salario_atual > 2000.01) {
+        salario_novo = (salario_atual + (salario_atual * 0.04))
+        valor_ganho = salario_novo - salario_atual
+
+        document.write('Seu novo salário é: R$ ' + salario_novo.toFixed(2)+("<br>"))
+        document.write('O valor de reajuste foi: R$ ' + valor_ganho.toFixed(2)+("<br>"))
+        document.write('O índice de aumento é de 4%')
+    }
+
+</script>

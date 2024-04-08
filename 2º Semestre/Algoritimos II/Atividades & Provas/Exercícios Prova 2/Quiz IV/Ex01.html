@@ -1,0 +1,14 @@
+<script>
+    // Array de palavras
+    const palavras = ['JavaScript', 'é', 'uma', 'linguagem', 'de', 'programação']
+
+    // Função para concatenar palavras usando reduce
+    function concatenarPalavras (array, separador) { 
+        return array.reduce((resultado, palavra) => resultado + separador + palavra)
+    }
+
+    // Calcula e imprime a string resultante
+    const resultadoConcatenacao = concatenarPalavras (palavras, ' ')
+    console.log(`Resultado da concatenação: "${resultadoConcatenacao}"`)
+
+</script>

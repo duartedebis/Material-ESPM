@@ -1,0 +1,21 @@
+<script>
+
+  let quantidade = parseInt(prompt("Digite a quantidade de números a serem gerados:"))
+  let numeros = []
+  let contador = {}
+
+  for (var i = 0; i < quantidade; i++) {
+    var numero = Math.random().toFixed(1)
+    numeros.push(numero)
+
+    if (contador[numero]) {
+      contador[numero]++
+    } else {
+      contador[numero] = 1
+    }
+  }
+
+  for (var numero in contador) {
+    document.write(`• ${numero} ocorre ${contador[numero]} vez(es) <br>`)
+  }
+</script>

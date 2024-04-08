@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+<script>
+
+    let numero, cont, total
+    
+    do {
+        numero = parseInt(prompt('Insira um número positivo e inteiro'))
+        if(numero <= 0) {
+            alert('Você deve inserir um número inteiro e positivo')
+        }
+    } while(numero <= 0)
+
+    for(let cont = 1; cont <= numero; cont++){
+        if(numero % cont == 0){
+            total++
+        }
+    }
+
+    if(total == 2) {
+        alert("é um número primo")
+    }
+    else{
+        alert("não é um número primo")
+    }
+    
+</script>

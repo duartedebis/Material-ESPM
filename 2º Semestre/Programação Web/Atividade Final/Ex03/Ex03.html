@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+    crossorigin="anonymous"
+  />
+    <title>Seleção para o Curso na Unicamp</title>
+</head>
+<body>
+    <h1>Seleção para o Curso na Unicamp</h1>
+    <form id="selecaoForm">
+        <label for="pontuacaoMinima">Pontuação Mínima:</label>
+        <input type="number" id="pontuacaoMinima" required>
+        
+        <br>
+
+        <ul class="competidores-list" id="competidoresList">
+        </ul>
+
+        <p class="total-passaram">Total de Competidores que Passaram: <span id="totalPassaram">0</span></p>
+        <button class="button-calcular" type="button" onclick="calcularSelecao()">Calcular Seleção</button>
+    </form>
+
+    <script>
+        function calcularSelecao() {
+            const pontuacaoMinima = parseInt(document.getElementById('pontuacaoMinima').value);
+            const competidoresList = document.getElementById('competidoresList');
+            let totalPassaram = 0;
+
+            for (let i = 1; i <= 8; i++) {
+                const prova1 = parseInt(document.getElementById(`prova1_${i}`).value);
+                const prova2 = parseInt(document.getElementById(`prova2_${i}`).value);
+                const passou = (prova1 + prova2 >= pontuacaoMinima) ? 'Sim' : 'Não';
+
+                document.getElementById(`passou_${i}`).textContent = passou;
+                if (passou == 'Sim') {
+                    totalPassaram++;
+                }
+            }
+
+            document.getElementById('totalPassaram').textContent = totalPassaram;
+        }
+
+        const competidoresList = document.getElementById('competidoresList');
+        for (let i = 1; i <= 8; i++) {
+            const competidorItem = document.createElement('li');
+            competidorItem.className = 'competidor-item';
+            competidorItem.innerHTML = `
+                <label>Competidor ${i}</label>
+                <input type="number" id="prova1_${i}" required>
+                <input type="number" id="prova2_${i}" required>
+                <span class="passou" id="passou_${i}">-</span>
+            `;
+            competidoresList.appendChild(competidorItem);
+        }
+    </script>
+</body>
+</html>

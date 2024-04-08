@@ -1,0 +1,56 @@
+<script>
+    // Uma empresa de vendas conta com 5 vendedores em seu quadro de funcionários.
+    // Esses vendedores são responsáveis por divulgar e vender os produtos da empresa para 
+    // comerciantes da região. Foi solicitado a você que implementasse um programa em JavaScript para 
+    // emitir alguns relatórios sobre as vendas realizadas no segundo semestre de 2022.
+    // Inicialmente o seu programa deverá armazenar o nome de cada um dos vendedores e também o valor 
+    // total das vendas de cada vendedor em cada mês do primeiro semestre. 
+    // O seu programa deverá imprimir no vídeo as seguintes informações:
+
+    // a) Total de vendas de cada vendedor no segundo semestre de 2022.
+    // b) Total de vendas por mês.
+    // c) Nome do vendedor que teve o maior total de vendas.
+    // d) Nome do vendedor com o menor total de vendas
+
+    let vendedor = new Array(5)
+    let vendas = new Array(5)
+    let mes = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"]
+    
+    for(let i = 0; i < vendedor.length; i++){
+        vendedor[i] = prompt("Digite o nome do vendedor:")
+        vendas[i] = new Array (6)
+        for(let j = 0; j < vendas[i].length; j++){
+            vendas[i][j] = Math.random() * 10
+        }
+    }
+
+    console.table(vendas)
+
+    // soma das vendas por vendedor --> item a
+    let soma 
+    for(let i = 0; i < vendas.length; i++){
+        soma = 0
+        for(let j = 0; j < vendas[i].length; j++){
+            soma += soma + vendas [i][j]
+        }
+        console.log(vendedor[i]+ "--> R$" + soma.toFixed(2))
+    }
+
+    // soma das vendas por vendedor --> item a
+    let soma
+    for(let i = 0; i < vendas.length; i++){
+        soma = 0
+        for(let j = 0; j < vendas[i].length; j++){
+            soma += soma + vendas [i][j]
+        }
+        console.log(vendedor[i]+ "--> R$" + soma.toFixed(2))
+    }
+
+    // soma das vendas por mês --> item b
+    console.log("\ntotal de vendas por mês")
+    for(let j = 0; j < mes.length; j++){
+
+    }
+
+
+</script>

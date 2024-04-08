@@ -1,0 +1,39 @@
+<meta charset="utf-8" />
+<script>
+  
+  let notas_100, notas_50, notas_20, notas_10, notas_5, notas_2, valor_saque, qntd_total
+
+  valor_saque = parseFloat(prompt('Insira o valor de saque'))
+
+  nota100 = Math.floor (valor_saque / 100)
+  let resto100 = saque % 100
+
+  nota50 = Math.floor (valor_saque / 50)
+  let resto50 = saque % 50
+
+  nota20 = Math.floor (valor_saque / 20)
+  let resto20 = saque % 20
+  
+  nota10 = Math.floor (valor_saque / 10)
+  let resto10 = saque % 10
+
+  nota5 = Math.floor (valor_saque / 5)
+  let resto5 = saque % 5
+
+  nota2 = Math.floor (valor_saque / 2)
+  let resto2 = saque % 2
+
+  nota1 = Math.floor (resto2 / 1)
+
+  qntd_total = nota100 + nota50 + nota20 + nota10 + nota5 + nota2 + nota1
+
+    document.write (" R$ 100,00 :   " + nota100)
+    document.write("  R$ 50,00 :   " + nota50)
+    document.write("  R$ 20,00 :   " + nota20)
+    document.write("  R$ 10,00 :   " + nota10)
+    document.write("  R$ 5,00 :   " + nota5)
+    document.write("  R$ 2,00 :   " + nota2)
+    document.write("  R$ 1,00 :   " + nota1)
+    document.write("  Quantidade total de notas  :   " + quantidadeTotal)
+    
+</script>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+    crossorigin="anonymous"
+  />
+	<link rel="stylesheet" href="./style.css">
+	<title>Fetch - Criação Simples</title>
+<body>
+
+	<div>
+		<label for="inputNome">Nome</label>
+		<input type="text" id="inputNome" />
+	</div>
+
+	<div>
+		<label for="inputDescricao">Descrição</label>
+		<input type="descricao" id="inputDescricao" />
+	</div>
+
+	<div>
+		<label for="inputProdutora">Produtora</label>
+		<input type="produtora" id="inputProdutora" />
+	</div>
+
+	<div>
+		<label for="inputAno">Ano</label>
+		<input type="ano" id="inputAno" />
+	</div>
+
+	<div>
+		<label for="inputIdadeMinima">Idade Minima</label>
+		<input type="idadeMinima" id="inputIdadeMinima" />
+	</div>
+
+	<button type="button" onclick="criarJogo()">
+		Criar Jogo
+	</button>
+
+	<script type="text/javascript">
+
+		async function criarJogo() {
+
+			let inputNome = document.getElementById("inputNome");
+			let inputDescricao = document.getElementById("inputDescricao");
+			let inputProdutora = document.getElementById("inputProdutora");
+			let inputAno = document.getElementById("inputAno");
+			let inputIdadeMinima = document.getElementById("inputIdadeMinima");
+
+			let nome = inputNome.value;
+			let descricao = inputDescricao.value;
+			let produtora = inputProdutora.value;
+			let ano = parseInt(inputAno.value);
+			let idade = parseInt(inputIdadeMinima.value);
+
+			if (!nome) {
+				alert("Nome inválido!");
+				return;
+			}
+
+			if (!descricao) {
+				alert("Descricao inválido!");
+				return;
+			}
+
+			if (!produtora) {
+				alert("Produtora inválido!");
+				return;
+			}
+
+			if (!ano) {
+				alert("Ano inválido!");
+				return;
+			}
+
+			if (!idade) {
+				alert("Idade inválido!");
+				return;
+			}
+
+			let jogo = {
+				nome: nome,
+				descricao: descricao,
+				produtora: produtora,
+				ano: ano,
+				idadeMinima: idade,
+			};
+
+			try {
+
+				let response = await fetch("https://academico.espm.br/testeapi/jogo/criar", {
+					method: "POST",
+					body: JSON.stringify(jogo),
+					headers: {
+						"content-type": "application/json"
+					}
+				});
+
+				if (!response.ok) {
+					alert("Ocorreu um erro ao jogo:(");
+					return;
+				}
+
+				inputNome.value = "";
+				inputDescricao.value = "";
+				inputProdutora.value = "";
+				inputAno.value = "";
+				inputIdadeMinima.value = "";
+
+				alert("Jogo criado com sucesso!");
+
+			} catch (ex) {
+				alert("Ocorreu um erro de rede ao criar a pessoa: " + ex.message)
+			}
+
+		}
+
+	</script>
+
+</body>
+</html>

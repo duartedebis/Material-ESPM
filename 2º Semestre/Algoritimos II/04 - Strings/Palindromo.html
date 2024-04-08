@@ -1,0 +1,27 @@
+<!-- Escreva um programa em JavaScript que leia uma palavra e imprima uma
+mensagem no vídeo (console) informando se a palavra é ou não um sspalíndromo -->
+
+<script>
+
+    let palavra, j
+    let palindromo = true
+
+    palavra = prompt("Insira uma palavra:")
+    palavra = palavra.toLowerCase()
+
+    j = palavra.length - 1
+    for(let i = 0; i < palavra.length / 2; i++){
+        if (palavra.charAt(i) != palavra.charAt(j)){
+            palindromo = false
+            break
+        }
+        j--
+    } 
+
+    if(palindromo == true){
+    document.write(`A palavra "${palavra}" é um palíndromo.`)
+    } else {
+    document.write(`A palavra "${palavra}" não é um palíndromo.`)
+    }
+
+</script>

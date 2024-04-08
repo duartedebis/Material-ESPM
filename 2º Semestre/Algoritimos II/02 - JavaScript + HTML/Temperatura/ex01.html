@@ -1,0 +1,27 @@
+
+<!-- Escreva um programa em JavaScript que permita ler de uma página HTML o valor de
+uma temperatura informada pelo usuário e também para qual escala (celsius ou
+Fahrenheit) a temperatura será convertida. O programa JavaScript deverá fazer a
+conversão e exibir o valor na página HTML. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="ex01.js"> </script>
+    <!-- para "linkar" um outro arquivo a este = <script src="nome do arquivo"></script> -->
+</head>
+
+<body>
+    <h1> Conversão de Temperatura </h1>
+    <label for="entrada"> Temperatura </label>
+    <input type="number" id="entrada" name="entrada"> 
+    <!-- precisamos linkar o NAME no LABEL (for) -->
+    <p id="saida"></p>
+    <button onclick="converter()"> Converter </button>
+    <!-- chamada da função = () -->
+
+</body>
+</html>

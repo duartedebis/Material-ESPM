@@ -1,0 +1,85 @@
+.body{
+    margin: 0 px;
+}
+.limitador{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.limitador2{
+    max-width: 800px;
+    margin: 0 auto;
+}
+.centralizar{
+    text-align: center;
+}
+.esquerdo{
+    text-align: left;
+    padding: 30px 0 0 0;
+}
+.padding{
+    padding: 0 0 100px 0;
+}
+.padding02{
+    padding: 20px 20px 0 0;
+}
+.padding03{
+    padding: 150px 0 30px 0;
+}
+.padding04{
+    padding: 20px 0 50px 0;
+}
+.padding05{
+    padding: 30px 0 0 80px;
+}
+.pagina01{
+    padding: 50px 0 0 0;
+    background-color: rgb(218, 210, 210);
+    background-size: cover;
+}
+.button{
+    border-radius: 30px;
+    background-color: rgb(110, 94, 201);
+    color: white;
+    padding: 10px 20px; 
+    font-size: 16px;
+    border: none;
+    margin: 30px auto;
+}
+.pagina02{
+    padding: 100px 0 100px 0;
+    background-color: rgb(248, 248, 248);
+    background-size: cover;
+}
+.lean{
+    color: rgb(93, 101, 219);
+    padding: 10px 0 30px 0;
+}
+.pagina03{
+    padding: 100px 0 100px 0;
+    background-color: rgb(41, 38, 37);
+    background-size: cover;
+}
+.texto01{
+    color: white;
+    text-align: center;
+}
+.textos{
+    color: rgba(255, 255, 255, 0.5);
+    margin: 15px 0 40px 0;
+}
+.pagina04{
+    padding: 150px 0 150px 0;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+}
+.imgmulher{
+    width: 8px;
+}
+.imglogo{
+    width: 120px;
+    margin: 0 0 0 30px;
+}
+.icons{
+    width: 50px;
+    padding: 100px 0 25px 0;
+}

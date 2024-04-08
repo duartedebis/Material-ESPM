@@ -1,0 +1,58 @@
+<meta charset="utf-8">
+<script>
+
+    //Aqui estão as variáveis que serão usadas e armazenadas
+    let valora, valorb, valorc
+
+    //Aqui é onde o usuário digitará os números que serão usados e eles são armazenados em suas respectivas variáveis
+    valora = Number(prompt("Informe o valor A: "))
+    valorb = Number(prompt("Informe o valor B: "))
+    valorc = Number(prompt("Informe o valor C: "))
+
+    //Aqui é o primeiro teste para saber se é ou não um triângulo, caso não seja o programa avisa e para
+    if(valora + valorb <= valorc || valora + valorc <= valorb || valorb + valorc <= valora){
+        alert("Os valores não formam um triângulo")
+    } 
+    //Se for um triângulo agora ele testa se o valor A é menor que B e se o valor B é maior que C
+    //para saber se B é o mais alto, se sim ele continua aqui e inverte 
+    else if(valora < valorb && valorb > valorc) {
+        valora = valora + valorb
+        valorb = valora - valorb
+        valora = valora - valorb
+    //Depois que ele inverte vêm os teste para saber qual tipo de triângulo ele é e depois indica para o usuário
+        if(valora * valora == valorb * valorb + valorc * valorc){
+        alert("Ele é um Retângulo")
+    } else if(valora * valora < valorb * valorb + valorc * valorc){
+        alert("Ele é um Acutângulo")
+    } else if(valora * valora > valorb * valorb + valorc * valorc){
+        alert("Ele é um Obstusângulo")
+    }
+    } 
+    //Se o caso de cima não acontece de ser A menor que B e B maior que C, agora ele testa se A é menor que C, 
+    //se sim ele inverte. Nesse nós não testamos se C é maior que B, pois se ele conseguiu vir para esse teste
+    //ou C é maior A, ou A já é o maior, já que nós já sabemos que B não é maior que C nem A
+    else if(valora < valorc){
+        valora = valora + valorc
+        valorc = valora - valorc
+        valora = valora - valorc
+    //Depois que ele inverte vêm os teste para saber qual tipo de triângulo ele é e depois indica para o usuário
+        if(valora * valora == valorb * valorb + valorc * valorc){
+        alert("Ele é um Retângulo")
+    } else if(valora * valora < valorb * valorb + valorc * valorc){
+        alert("Ele é um Acutângulo")
+    } else if(valora * valora > valorb * valorb + valorc * valorc){
+        alert("Ele é um Obstusângulo")
+    }
+    }
+    //Caso o A já seja maior que B e C, aqui ele só testa para saber qual tipo de triângulo ele é e indica para o usuário
+    else{
+        if(valora * valora == valorb * valorb + valorc * valorc){
+        alert("Ele é um Retângulo")
+    } else if(valora * valora < valorb * valorb + valorc * valorc){
+        alert("Ele é um Acutângulo")
+    } else if(valora * valora > valorb * valorb + valorc * valorc){
+        alert("Ele é um Obstusângulo")
+    }
+    }
+
+</script>

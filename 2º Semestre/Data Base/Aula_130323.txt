@@ -1,0 +1,26 @@
+use carloca;
+
+select * from loc_funcionario;
+
+select * from loc_depto;
+
+insert into loc_depto
+  (cd_depto, nm_depto, vl_orc_depto)
+values 
+  (52, 'Teste', 1000); 
+  
+select *
+  from loc_depto
+  where cd_depto = 52;
+  
+delete 
+  from loc_depto
+  where cd_depto = 52;
+  
+  select *
+  from loc_depto
+  where cd_depto = 50;
+  
+  delete
+  from loc_depto
+  where cd_depto = 50;

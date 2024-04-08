@@ -1,0 +1,123 @@
+use carloca;
+
+-- Relatório de Locações de Veículos da CARLOCA
+-- Número da Transação, Placa, Nome do Modelo, Nome do Fabricante, Valor
+
+Select Nr_Pedido, i.Nr_Placa, Nm_Modelo, Nm_Fabricante, i.Vl_Diaria
+  from loc_item_locacao i
+  inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante;
+  
+-- Máximo valor por Fabricante --> Modelo
+Select Nm_Fabricante, Nm_Modelo, max(i.Vl_Diaria)
+  from loc_item_locacao i
+  inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  group by nm_fabricante, nm_modelo
+  order by nm_fabricante, nm_modelo;
+  
+-- Máximo, mínimo e média valor por Fabricante --> Modelo
+Select Nm_Fabricante, Nm_Modelo, max(i.Vl_Diaria), min(i.Vl_Diaria), avg(i.Vl_Diaria)
+  from loc_item_locacao i
+  inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  group by nm_fabricante, nm_modelo
+  order by nm_fabricante, nm_modelo;
+  
+-- Máximo, mínimo e média valor por Fabricante --> Modelo decarros (acima de 500)
+Select Nm_Fabricante, Nm_Modelo, max(i.Vl_Diaria), min(i.Vl_Diaria), avg(i.Vl_Diaria)
+  from loc_item_locacao i
+  inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  where i.vl_diaria > 500
+  group by nm_fabricante, nm_modelo
+  order by nm_fabricante, nm_modelo;
+  
+-- Média Valor por Fabricante --> Modelo decarros (acima de 500)
+-- Ordenados por valor 
+Select Nm_Fabricante, Nm_Modelo, avg(i.Vl_Diaria)
+  from loc_item_locacao i
+  inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  where i.vl_diaria > 500
+  group by nm_fabricante, nm_modelo
+  order by avg(i.vl_diaria);
+  
+-- Média Valor por Fabricante --> Modelo decarros (acima de 500)
+-- Ordenados por valor, mas apenas para Fabricante --> modelos com valores
+-- acima de 10.000
+Select Nm_Fabricante, Nm_Modelo, avg(i.Vl_Diaria)
+  from loc_item_locacao i
+  inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  where i.vl_diaria > 500
+  group by nm_fabricante, nm_modelo
+  having avg(i.vl_diaria) > 10000
+  order by avg(i.vl_diaria);
+  
+-- Que modelos tem valores de locação maiores que a locação média do Fiesta
+-- Parte 1
+Select Nm_Modelo, avg(i.Vl_Diaria)
+  from loc_item_locacao i
+  inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  where m.cd_modelo = 10;
+  
+-- Parte 2 --> Valor Médio de Todo Mundo
+Select Nm_Modelo, avg(i.Vl_Diaria)
+  from loc_item_locacao i
+  inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  group by nm_modelo;
+  
+-- Parte 3 --> ta funcinando na mão
+Select Nm_Modelo, avg(i.Vl_Diaria)
+  from loc_item_locacao i
+  inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  group by nm_modelo
+  having avg(i.Vl_Diaria) > 2267;
+                      
+-- Resolução
+Select Nm_Modelo, avg(i.Vl_Diaria)
+  from loc_item_locacao i
+  inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  group by nm_modelo
+  having avg(i.Vl_Diaria) > (Select avg(i.Vl_Diaria)
+							  from loc_item_locacao i
+                               inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+                               inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+					  where m.cd_modelo = 10);
+
+-- Que modelos tem valores de locação maiores que a locação média dos modelos Ford
+
+-- Quem é a Ford? Código
+Select * from loc_fabricante;
+
+-- Parte 2
+Select Nm_Modelo, avg(i.Vl_Diaria)
+  from loc_item_locacao i
+  inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  where m.cd_fabricante = 3
+  group by Nm_Modelo;
+  
+-- Final
+Select Nm_Modelo, avg(i.Vl_Diaria)
+  from loc_item_locacao i
+  inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  group by nm_modelo
+  having avg(i.Vl_Diaria) > all (Select avg(i.Vl_Diaria)
+                                  from loc_item_locacao i
+								   inner join loc_veiculo v on i.Nr_Placa = v.Nr_Placa
+                                   inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+                                   where m.cd_fabricante = 3
+                                 group by Nm_Modelo);

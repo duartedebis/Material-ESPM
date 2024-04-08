@@ -1,0 +1,71 @@
+use carloca;
+
+-- Listando salários da turma
+
+Select Vl_Salario from loc_funcionario; 
+
+-- Qual a soma salarial da CARLOCA
+Select sum(Vl_Salario) from loc_funcionario;
+
+-- Agora quero soma e média
+Select sum(Vl_Salario), avg(Vl_Salario)
+	from loc_funcionario;
+    
+-- Qual o menor salário 
+Select min(vl_salario) from loc_funcionario;
+
+Select vl_salario
+  from loc_funcionario
+  order by vl_salario;
+
+-- Aritimetica
+Select vl_salario + 1, vl_salario - 1, vl_salario * 2, vl_salario / 2
+  from loc_funcionario;
+  
+Select cd_func, mod(cd_func,2)
+  from loc_funcionario;
+  
+-- Descobre o menor salario
+
+Select nm_func, substr(Nm_Func,4,5), length(nm_func), instr(Nm_Func, 'm')
+  from loc_funcionario;
+  
+-- Qual a soma de salarios por cargo
+Select cd_cargo, sum(Vl_Salario)
+  from loc_funcionario
+  group by cd_cargo;
+  
+Select cd_cargo, sum(Vl_Salario)
+  from loc_funcionario
+  group by cd_func;
+  
+Select nm_depto, sum(Vl_Salario)
+  from loc_funcionario f
+  inner join loc_depto d on f.cd_depto = d.cd_depto
+  group by cd_func;
+  
+-- Medias e somas salariais apenas de quem paga muito (acima de 5000)
+Select nm_depto, sum(Vl_Salario), avg(Vl_Salario)
+  from loc_funcionario f 
+  inner join loc_depto d on f.cd_depto = d.cd_depto
+  where vl_salario > 5000
+  group by nm_depto;
+  
+-- Medias e Somas salarias apenas de Departamentos cuja média seja acima de 5000
+Select nm_depto, sum(Vl_Salario), avg(Vl_Salario)
+  from loc_funcionario f 
+  inner join loc_depto d on f.cd_depto = d.cd_depto
+  where vl_salario > 5000
+  group by nm_depto
+  having avg(vl_salario) > 5000;
+  
+-- Medias e Somas salarias apenas de Departamentos cuja média seja acima de 5000
+-- descontados todos os funcionários que ganham menos de 7000 ordenados em forma
+-- crescente por valor
+Select nm_depto, sum(Vl_Salario), avg(Vl_Salario)
+  from loc_funcionario f 
+  inner join loc_depto d on f.cd_depto = d.cd_depto
+  where vl_salario > 7000
+  group by nm_depto 
+  having avg(vl_salario) > 5000
+  order by avg(vl_salario);

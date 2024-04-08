@@ -1,0 +1,13 @@
+<meta charset="utf-8" />
+<script>
+    
+    let salario_minimo, consumo_mensal, vl_m3
+
+    salario_minimo = parseFloat(prompt('Qual o salário mínimo vigente?'))
+    consumo_mensal = Number(prompt('Qual foi a quantidade de água consumida no último mês?'))
+   
+    vl_m3 = (salario_minimo / 130) * consumo_mensal
+    
+    alert('Você pagará: R$' + vl_m3.toFixed(2))
+
+</script>

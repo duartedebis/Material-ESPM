@@ -1,0 +1,40 @@
+<!-- 
+Escreva um programa em JavaScript que leia uma palavra e faça a impressão
+conforme exemplo mostrado abaixo. Suponha que o usuário tenha digitado a
+palavra AMOR.
+A
+AM
+AMO
+AMOR -->
+
+<script>
+
+    let palavra = prompt("Escreva uma palavra")
+
+    let partePalavra = ""
+
+    for(let letra of palavra){
+        partePalavra += letra
+        document.write(partePalavra.toUpperCase() + "<br>")
+    }
+
+
+    // Chat
+    // let palavra = prompt("Digite uma palavra:"); // Solicitar ao usuário que digite uma palavra
+    // let palavraSemEspacos = palavra.toLowerCase().replace(/\s/g, ''); // Remover espaços e tornar minúsculo
+
+    // let palindromo = true;
+
+    // for (let i = 0; i < palavraSemEspacos.length / 2; i++) {
+    //     if (palavraSemEspacos[i] !== palavraSemEspacos[palavraSemEspacos.length - 1 - i]) {
+    //         palindromo = false;
+    //         break;
+    //     }
+    // }
+    // if (palindromo) {
+    //     alert(`A palavra "${palavra}" é um palíndromo.`);
+    // } else {
+    //     alert(`A palavra "${palavra}" não é um palíndromo.`);
+    // }
+
+</script>

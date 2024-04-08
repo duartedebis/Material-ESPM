@@ -1,0 +1,11 @@
+<script>
+    // Para que o primeiro item do array seja removido, 
+    // antes mesmo que o laço de repetição seja executado, 
+    // pode-se adicionar na linha 2 o comando:
+
+    let lista = ["Adalberto", "Giovani", "Paula", "Maria", "Ana"]; 
+    lista.forEach(function(item, indice, array) { 
+        console.log(item); 
+    });
+    lista.shift();
+</script>

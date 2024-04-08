@@ -1,0 +1,41 @@
+// Escreva um programa em JavaScript que leia três valores. 
+// Caso os valores formemos lados de um triângulo, imprima a sua classificação quanto aos lados.
+// Observação: para que três valores formem os lados de um triângulo é necessário que cada um dos 
+// lados seja menor que a soma dos outros dois. Aclassificação dos triângulos quanto aos lado é: 
+// equilátero (3 lados iguais), isósceles (2 lados iguais) ou escaleno (3 lados diferentes).
+
+<script>
+
+    let v1 = Number(prompt("Digite um valor"))
+    let v2 = Number(prompt("Digite um valor"))
+    let v3 = Number(prompt("Digite um valor"))
+
+
+    if(validar ()){
+        classificar()
+    }
+    else {
+        alert("Os valores não formam um triângulo")
+    }
+
+    function validar(){
+        if(v1 < v2 + v3 && v2 < v1 + v3 && v3 < v1 + v2){
+            return true
+        }
+        return false
+    }
+
+    // função para classificar o triângulo
+    function classificar(){
+        if(v1 == v2 && v2 == v1){
+            alert("Triângulo Equilátero")
+        }
+        else if (v1 == v2 || v1 == v3 || v2 == v3) {
+            alert("Triângulo Isósceles")
+        }
+        else {
+            alert("Triângulo Escaleno")
+        }   
+    }
+    
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fetch - Listagem em HTML Dinâmico com Encode</title>
+	<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+    crossorigin="anonymous"
+  />
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+	<button type="button" onclick="listarJogos()">
+		Listar Jogos
+	</button>
+
+	<div id="divListagem"></div>
+
+	<script type="text/javascript">
+		let regExpAmp = /\&/g, regExpLt = /</g, regExpGt = />/g;
+	
+		function encode(x) {
+			return (typeof x === 'string' ? x.replace(regExpAmp, "&amp;").replace(regExpLt, "&lt;").replace(regExpGt, "&gt;") : "");
+		}
+	
+		async function listarJogos() {
+			let response = await fetch("https://academico.espm.br/testeapi/jogo/listar");
+			let lista = await response.json();
+	
+			let html = `<h1>Jogos cadastrados: ${lista.length}</h1>`;
+	
+			for (let i = 0; i < lista.length; i++) {
+				html += `
+					<hr />
+					<h2>
+						<i>(${lista[i].id})</i> ${encode(lista[i].nome)}
+					</h2>
+					<p>
+						descricao: ${encode(lista[i].descricao)}
+						produtora: ${encode(lista[i].produtora)}
+						ano: ${encode(lista[i].ano)}
+						idadeMinima: ${encode(lista[i].idadeMinima)}
+					</p>
+				`;
+			}
+	
+			let divListagem = document.getElementById("divListagem");
+			divListagem.innerHTML = html;
+		}
+	</script>
+
+</body>
+</html>

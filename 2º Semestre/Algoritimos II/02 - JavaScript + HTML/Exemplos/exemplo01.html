@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Testezinho de Formulário </h1>
+    <form action="">
+        <label for="nome"> Nome: </label>
+        <input type="text" id="Nome"> 
+        <p> </p>
+        <label for="senha"> Senha: </label>
+        <input type="password">
+        <p> </p>
+        <label for="nascimento"> Data de Nascimento: </label>
+        <input type="date">
+        <p> </p>
+        <button onclick="imprimir()"> Clique aqui! </button>
+    </form>
+
+    <p id="Mensagem"> </p>
+    <script>
+        function imprimir () {
+            let nome = document.getElementById("Nome") // o getElement faz o vínculo do html e o script
+            let mensagem = document.getElementById("Mensagem")
+            mensagem.innerHTML = "Bem-vinde" + nome 
+        }
+    </script>
+</body>
+</html>
+
+<!-- (variavel.innerHTML)esta variável dentro do código está ligada ao meu código -->
+<!-- input type serve para criar caixas de seleção -->
+<!-- <p> PARÁGRAFO </p> -->

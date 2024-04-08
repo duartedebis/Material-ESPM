@@ -1,0 +1,15 @@
+<meta charset="utf-8"/>
+<script>
+let idade = parseInt(prompt('digite sua idade'))
+
+if (idade < 16){
+    alert("Você não vota")
+} else {
+    if (idade < 18 || idade > 67) { // poderia usar também o idade >= 16 && < 18 mas aí eu não conseguiria colocar o || idade > 67, então mudei a lógica
+    alert("Seu voto é opcional") 
+    } else {
+    alert ("Seu voto é obrigatório")
+    }
+}
+
+</script>

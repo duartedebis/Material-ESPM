@@ -1,0 +1,47 @@
+<!-- 
+Escreva um programa em JavaScript que:
+a) preencha um vetor de 10 posições com valores aleatórios (o preenchimento
+deverá ser feito por uma função).
+b) Imprima os dados do vetor no vídeo (a impressão deverá ser feita por uma
+função).
+c) Faça a inversão dos valores do vetor (a inversão deverá ser feita por uma
+função).
+d) Imprima novamente o vetor no vídeo para ter certeza que a inversão ocorreu
+corretamente. -->
+
+<meta charset="utf-8">
+<script>
+
+    let lista = new Array(10)
+
+    function preencher(lista) {
+        for(let i = 0; i < lista.length; i++) {
+            lista[i] = parseInt(Math.random() * 50)
+        }
+    }
+
+    function imprimir(lista) {
+        for(let i = 0; i < lista.length; i++) {
+            console.log(lista[i])
+        }
+    }
+
+    function inverter(lista) {
+        let aux 
+        let j = lista.length - 1
+
+        for(let i = 0; i < lista.length / 2; i++) {
+            aux = x[i]
+            x[i] = x[j]
+            x[j] = aux
+            j--
+        }
+
+    }
+
+    preencher(lista)
+    imprimir(lista)
+    inverter(lista)
+    imprimir(lista)
+
+</script>

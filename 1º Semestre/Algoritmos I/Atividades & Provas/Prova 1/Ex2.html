@@ -1,0 +1,21 @@
+<meta charset="utf-8" />
+<script>
+  
+  let h_inicial, m_inicial, h_final, m_final, duracao_horas, duracao_minutos
+
+    h_inicial = parseFloat(prompt('Qual o horário inicial de produção?'))
+    m_inicial = parseFloat(prompt('Qual o minuto inicial de produção?'))
+    h_final = parseFloat(prompt('Qual o horário final de produção?'))
+    m_final = parseFloat(prompt('Qual o minuto final de produção?'))
+
+
+    duracao_horas = ((h_final - h_inicial) + 24) % 24
+    duracao_minutos = ((h_final - h_inicial) + 60) % 60
+
+    if(m_final -m_inicial < 0) {
+        duracao_horas = ((duracao_horas - 1) + 24) % 24
+    }
+    
+  alert('o tempo de duração da peça será de: ' + duracao_horas + 'horas e' + duracao_minutos + 'minutos')
+
+</script>

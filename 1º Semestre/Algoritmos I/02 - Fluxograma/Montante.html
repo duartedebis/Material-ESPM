@@ -1,0 +1,18 @@
+<!-- Escreva um algoritmo para calcular e imprimir no vídeo o montante M de um
+capital inicial C investido durante t meses a uma taxa de juros i. A taxa de juros i é
+um valor em porcentagem. 
+fórmula: M = C * (1 + i/100)^t
+-->
+
+<meta charset="utf-8">
+<script>
+    let m, c, t, i
+
+    c = parseFloat(prompt('digite o valor do Capital:'))
+    t = parseFloat(prompt('digite o valor do tempo (meses/anos):'))
+    i = parseFloat(prompt('digite o valor da taxa de juros:'))
+
+    m = c * Math.pow((1 + i/100), t)
+
+    alert('o montante é: R$ ' + m.toFixed(2))
+</script>

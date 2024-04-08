@@ -1,0 +1,80 @@
+use carloca;
+
+-- Todos os departamentos
+Select *
+   from loc_depto;
+ 
+   
+-- Todos os departamentos em ordem alfabética
+Select *
+   from loc_depto
+   order by Nm_Depto;
+   
+-- Todos os departamentos (Nomes e Orçamento) em ordem alfabética
+Select Nm_Depto, Vl_Orc_Depto
+   from loc_depto
+   order by Nm_Depto;
+   
+-- Todos os departamentos (Nomes e Orçamento) 
+-- mas somente para orçamentos maiores que 50000
+Select Nm_Depto, Vl_Orc_Depto
+   from loc_depto
+   where Vl_Orc_Depto > 50000;
+   
+-- Todos os departamentos (Nomes e Orçamento) 
+-- mas somente para orçamentos maiores que 50000 ou menores
+-- que 20000
+Select Nm_Depto, Vl_Orc_Depto
+   from loc_depto
+   where Vl_Orc_Depto > 50000 or Vl_Orc_Depto < 20000;
+   
+   -- Se trocar OU por E? 
+Select Nm_Depto, Vl_Orc_Depto
+   from loc_depto
+   where Vl_Orc_Depto > 50000 and Vl_Orc_Depto < 20000;
+-- Não sai nada....
+
+-- Todos os departamentos (Nomes e Orçamento) 
+-- mas somente para orçamentos mneores ou iguais a 50000 
+-- e maiores ou iguais a 20000
+-- em ordem decrescente de valores
+Select Nm_Depto, Vl_Orc_Depto
+   from loc_depto
+   where Vl_Orc_Depto <= 50000 and Vl_Orc_Depto >= 20000
+   order by Vl_Orc_Depto desc;
+   
+-- Analise o resultado da query e faça uma sugestão para 
+-- evitarmos a repetição de valores 
+Select Vl_Orc_Depto
+   from loc_depto; 
+-- Resposta 
+Select distinct Vl_Orc_Depto
+   from loc_depto; 
+   
+-- O que ocorre se negarmos as expressões abaixo?
+Select Nm_Depto, Vl_Orc_Depto
+   from loc_depto
+   where Vl_Orc_Depto > 50000 and Vl_Orc_Depto < 20000;
+  
+-- 1a expressão
+Select Nm_Depto, Vl_Orc_Depto
+   from loc_depto
+   where not (Vl_Orc_Depto > 50000 or Vl_Orc_Depto < 20000);
+   
+-- 2a expressão 
+Select Nm_Depto, Vl_Orc_Depto
+   from loc_depto
+   where not (Vl_Orc_Depto > 50000 and Vl_Orc_Depto < 20000);
+   
+-- Cuidado negar inverte a lógica!!!
+Select Nm_Depto, Vl_Orc_Depto
+   from loc_depto
+   where not Vl_Orc_Depto < 3000;
+   
+Select distinct Vl_Orc_Depto
+   from loc_depto
+   where VL_Orc_Depto >= 3000;
+   
+   
+   
+   

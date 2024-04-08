@@ -1,0 +1,61 @@
+use carloca;
+
+-- Ex5
+-- Crie uma instrução SQL que exiba todos os dados da tabela de Pedidos 
+-- de Locação em ordem decrescente de valor de locaçãoptimize
+
+Select *
+  from Loc_Pedido_Locacao
+  order by Vl_Total desc;
+  
+-- Ex25 deve aparecer uma imagem na lista
+
+Select *
+  from loc_pedido_locacao
+  where Nr_Pedido = 10;
+  
+-- Ex23 Elabora instrução SQL que apresente
+-- Nome do cliente (Nm_Cliente) e o código do tipo de cliente.
+
+Select Nm_Cliente, Cd_Tp_Cliente
+  from Loc_Cliente;
+  
+-- Ex7 Crie uma instrução SQL que exiba todos os dados da tabela de Clientes.
+-- Exiba essa consulta em ordem de número de estrelas do cliente.
+
+Select *
+  from Loc_Cliente
+  order by Nr_Estrelas;
+  
+  -- Eshley que em ordem decrescente
+  
+  Select *
+  from Loc_Cliente
+  order by Nr_Estrelas desc;
+  
+-- Ex13 Crie uma instrução SQL que exiba o código, nome, salário e a
+-- percentagem de sua comissão. Utilize a tabela LOC_FUNCIONARIO como
+-- referência.
+
+Select Cd_Func, Nm_Func, Vl_Salario, Vl_Perc_Comissao
+  from Loc_Funcionario;
+  
+-- Ex28 Liste Nome do Funcionário e Salários de funcionários com salários
+-- maiores que 7000.
+  
+Select Nm_Func, Vl_Salario
+  from Loc_Funcionario
+  where Vl_Salario > 7000;
+  
+-- Surjanice salários entre 6000 e 20000
+
+Select Nm_Func, Vl_Salario
+  from Loc_Funcionario
+  where Vl_Salario >= 7000 and Vl_Salario <= 20000;
+
+-- Ex27 Desenvolva uma instrução SQL que exiba os seguintes dados: código e
+-- nome do cliente e número de estrelas, desde que sejam ímpares.
+
+Select cd_func, Nm_Func, Vl_Salario
+  from Loc_Funcionario
+  where mod(cd_func,2) = 1;

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrada de Senha</title>
+
+    <link rel="stylesheet" href="estilo.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <label for="senha-input" class="senha">Senha:</label>
+        <input type="senha" id="senha-input" readonly>
+    </div>
+
+    <div id="numeros">
+        <button class="buttonNumero" onclick="appendToSenha(1)">1</button>
+        <button class="buttonNumero" onclick="appendToSenha(2)">2</button>
+        <button class="buttonNumero" onclick="appendToSenha(3)">3</button>
+        <button class="buttonNumero" onclick="appendToSenha(4)">4</button>
+        <button class="buttonNumero" onclick="appendToSenha(5)">5</button>
+        <button class="buttonNumero" onclick="appendToSenha(6)">6</button>
+        <button class="buttonNumero" onclick="appendToSenha(7)">7</button>
+        <button class="buttonNumero" onclick="appendToSenha(8)">8</button>
+        <button class="buttonNumero" onclick="appendToSenha(9)">9</button>
+        <button class="buttonNumero" onclick="appendToSenha(0)">0</button>
+    </div>
+
+    <div class="container">
+        <button onclick="validarSenha()">Validar</button>
+    </div>
+
+    <div id="resultado"></div>
+    <script src="script.js"></script>
+</body>
+</html>

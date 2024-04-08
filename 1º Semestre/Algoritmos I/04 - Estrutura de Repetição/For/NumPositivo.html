@@ -1,0 +1,17 @@
+<script>
+    let valor, cont
+
+    valor = Number(prompt('Valor inteiro positivo'))
+    if(valor <= 0) {
+        alert("o valor deve ser positivo")
+    }
+    else {
+        cont = - valor
+        for (; cont <= valor; cont ++) {
+            if(valor % cont == 0) {
+                document.write(cont)
+            }
+        }
+    }
+    
+</script>

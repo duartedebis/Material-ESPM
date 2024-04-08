@@ -1,0 +1,27 @@
+<!-- O professor da disciplina de programação aplicou durante o semestre duas provas
+e dois trabalhos. A média final será composta por 70% da média das provas e
+30% da média dos trabalhos. Escreva um programa em JavaScript que calcule e
+imprima no vídeo a média final de um aluno e também a sua situação (aprovado
+ou reprovado) levando em consideração que para aprovação a média deverá ser
+maior ou igual a 7 -->
+
+<script>
+
+    alert("Informe as notas das provas e trabalhos")
+    
+    let prova1 = parseFloat(prompt('Prova 1:'))
+    let prova2 = parseFloat(prompt('Prova 2:'))
+    let trabalho1 = parseFloat(prompt('Trabalho 1:'))
+    let trabalho2 = parseFloat(prompt('Trabalho 2:'))
+
+    let mediaProva = (prova1 + prova2) / 2
+    let mediaTrabalho = (trabalho1 + trabalho2) / 2
+    let mediaFinal = (mediaProva * 0.7) + (mediaTrabalho * 0.3)
+
+    if(media >= 7){
+        alert(`Sua média é ${media}, parabéns você foi APROVADO`)
+    } else{
+        alert(`Sua média é ${media}, você foi REPROVADO`)
+    }
+
+</script>

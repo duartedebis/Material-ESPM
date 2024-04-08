@@ -1,0 +1,34 @@
+<script>
+    // Escreva um programa em JavaScript que preencha uma matriz quadrada de ordem 4 com valores inteiros aleatórios. 
+    // Em seguida:
+    // a) Mostre a soma dos elementos da diagonal principal.
+    // b) Mostre a soma dos elementos da diagonal secundária.
+
+    let dp = 0
+    let m = new Array(4)
+        for(let i = 0; i < m.length; i++) {
+            m[i] = new Array(4)
+            for(let j = 0; j < m.length; j++) {
+                m[i][j] = parseInt(Math.random()*11)
+
+                //if(i == j) --> verificar se é a diagonal principal
+            }
+        }
+
+    //soma dos elementos da diagonal principal
+
+    for(let i = 0; i < m.length; i++) {
+        dp = dp + m[i][i]
+    }
+
+    //soma dos elemntos da diagonal secundária
+    for(let i = 0; j = m.length; i < m.length, i++, j--){
+        dp = ds + m[i][j]
+        ds = ds + m[i][m.length]
+    }
+
+    console.table(m)
+    console.log("diagonal principal = " + dp)
+    console.log("diagonal secundária = " + ds)
+
+</script>

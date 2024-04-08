@@ -1,0 +1,19 @@
+input{
+    border-radius: 10px;
+    padding: 3px;
+    background-color: aliceblue;
+    border-color: blue;
+}
+
+label{
+    font-weight: 600;
+}
+
+button{
+    background-color: #f5a142;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: none;
+    color: #ffff;
+}

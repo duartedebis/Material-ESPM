@@ -1,0 +1,25 @@
+<!-- Escreva um programa em JavaScript que leia as coordenadas (x, y) de dois
+pontos no plano cartesiano. O programa deverá imprimir uma mensagem no
+vídeo informando qual dos dois pontos está mais próximo da origem dos eixos
+(0, 0). A expressão para o cálculo da distância entre dois pontos a e b é dada por: 
+Distancia = raiz((x2 - x1)² + (y2 - y1)²) -->
+
+<script>
+
+    let x1 = Number(prompt("Digite o valor de X1"))
+    let y1 = Number(prompt("Digite o valor de Y1"))
+    let x2 = Number(prompt("Digite o valor de X2"))
+    let y2 = Number(prompt("Digite o valor de Y2"))
+
+    let distancia1 = Math.sqrt(x1 * x1 + y1 * y1)
+    let distancia2 = Math.sqrt(x2 * x2 + y2 * y2)
+
+    if(distancia1 < distancia2){
+        alert(`O ponto 1 está mais próximo da origem`)
+    } else if(distancia1 > distancia2){
+        alert(`O ponto 2 está mais próximo da origem`)
+    } else{
+        alert(`Os pontos estão a mesma distância da origem`)
+    }
+
+</script>

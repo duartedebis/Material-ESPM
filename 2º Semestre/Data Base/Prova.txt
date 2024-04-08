@@ -1,0 +1,108 @@
+use carloca;
+
+-- Ex1
+-- Desenvolva uma instrução SQL que exiba os seguintes dados dos
+-- funcionários: código, nome e salário. (Não utilize a cláusula *) na
+-- instrução SELECT.
+
+Select Cd_Func, Nm_Func, Vl_Salario
+  from Loc_Funcionario;
+  
+-- Ex2
+-- Crie uma instrução SQL que exiba todos os dados da tabela de
+-- Proprietários. Exiba essa consulta em ordem de nome de proprietário.
+
+Select *
+  from Loc_proprietario
+  order by nm_proprietario;
+  
+-- Ex3
+-- Crie uma instrução SQL que exiba todos os dados da tabela de Bancos.
+-- Exiba essa consulta em ordem de nome de banco
+
+Select *
+  from Loc_Banco
+  order by Nm_banco;
+  
+-- Ex4
+-- Crie uma instrução SQL que exiba todos os dados da tabela de Grupos de
+-- Automóveis (LOC_GRUPO)?
+
+Select *
+  from loc_grupo;
+  
+-- Ex5
+-- Crie uma instrução SQL que exiba todos os dados da tabela de Pedidos de
+-- Locação em ordem descendente de valor de locação.
+-- (Loc_Pedido_Locacao)
+
+Select *
+  from loc_pedido_locacao
+  order by vl_total desc;
+  
+-- 6
+-- Crie uma instrução SQL que exiba todos os dados da tabela de Clientes.
+-- Exiba essa consulta em ordem de código de cliente
+
+Select *
+  from loc_cliente
+  order by cd_cliente;
+  
+-- Ex7
+-- Crie uma instrução SQL que exiba todos os dados da tabela de Clientes.
+-- Exiba essa consulta em ordem de número de estrelas do cliente.
+
+Select *
+  from loc_cliente
+  order by nr_estrelas; 
+  
+-- Ex8
+-- Crie uma instrução SQL que exiba todos os dados da tabela de Estado?
+-- Exiba essa consulta em ordem de sigla de Estado
+
+Select *
+  from loc_estado 
+  order by sigla_estado;
+  
+-- Ex9
+-- Desenvolva uma instrução SQL que exiba os seguintes dados dos
+-- funcionários: nome, código do departamento, percentual de comissão e
+-- data de início. Não utilize a cláusula * na instrução SELECT. Classifique
+-- essa consulta por ordem de nome de funcionário.
+
+Select nm_func, cd_func, vl_perc_comissao, dt_inicio
+  from loc_funcionario
+  order by nm_func;
+  
+-- Ex10
+-- Crie uma instrução SQL que exiba todos os dados da tabela de Cidade.
+-- Exiba essa consulta em ordem de código do Estado.
+
+Select *
+  from loc_cidade
+  order by cd_estado;
+  
+-- Ex11
+-- Crie uma instrução SQL que exiba todos os dados da tabela de Cidade,
+-- somente para as cidades que tenham ao menos um espaço em branco em
+-- seu nome completo. Exiba essa consulta em ordem de código de Estado.
+
+Select *
+  from loc_cidade 
+  where nm_cidade like '% %'
+  order by cd_estado;
+  
+-- Ex12
+-- Desenvolva uma instrução SQL que exiba os seguintes dados dos
+-- funcionários: nome, código do departamento, CPF. Apresente apenas
+-- dados cujo documento seja não nulo.
+
+Select nm_func, cd_depto, nr_cpf
+  from loc_funcionario
+  where nr_cpf is not null;
+  
+-- Ex13
+-- Crie uma instrução SQL que exiba o código, nome, salário e a
+-- percentagem de sua comissão. Utilize a tabela LOC_FUNCIONARIO como
+-- referência
+

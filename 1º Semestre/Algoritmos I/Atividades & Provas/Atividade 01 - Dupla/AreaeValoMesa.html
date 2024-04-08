@@ -1,0 +1,57 @@
+<meta charset="utf-8">
+<script>
+
+    //Aqui estão as variáveis que serão usadas e armazenadas
+    let comprimento, largura, tipomadeira, nmgavetas
+    let escrivaninhaarea, escrivaninhabase
+
+    //Aqui é onde o usuário digitará as informações necessárias e elas são armazenadas em sua respectivas variáveis
+    comprimento = Number(prompt("Insira o comprimento da escrivaninha (em centímetros): "))
+    largura = Number(prompt("Insira a largura da escrivaninha (em centímetros): "))
+    nmgavetas = Number(prompt("Insira o número de gavetas da escrivaninha: "))
+    tipomadeira = String(prompt("Insira o tipo de madeira da escrivaninha (mogno, carvalho ou pinho): "))
+
+    //Para não termos problemas de letras diferentes aqui definimos para sempre mudar para letras minúsculas
+    tipomadeira = tipomadeira.toLowerCase()
+
+    //Estamos calculando a área da escrivaninha em cm2
+    escrivaninhaarea = comprimento * largura
+
+    //Estamos definindo o valor base da escrivaninha
+    escrivaninhabase = 1200
+
+    //Aqui começa os teste para saber quanto o marceneiro vai cobrar, não precisamos testar se o NmGavetas > 0, 
+    //pois, 0 * 50 já é 0 mesmo, e não testamos a madeira "pinho", pois não adiciona nada. De resto fazemos todas 
+    //as verificações de combinações possíveis na ordem correta, fazendo suas respectivas contas dentro de cada 
+    //possibilidade e indicando ao usuário o valor final usando o .toFixed para limitar a 2 casas decimais
+    if(escrivaninhaarea > 1000 && tipomadeira == "carvalho") {
+        escrivaninhabase = escrivaninhabase + 500
+        escrivaninhabase = escrivaninhabase + (nmgavetas * 50)
+        alert("O preço da escrivaninha ficou: R$"+escrivaninhabase.toFixed(2))
+    }
+    else if(escrivaninhaarea > 1000 && tipomadeira == "mogno"){
+        escrivaninhabase = escrivaninhabase + 400
+        escrivaninhabase = escrivaninhabase + (nmgavetas * 50)
+        alert("O preço da escrivaninha ficou: R$"+escrivaninhabase.toFixed(2))
+    }
+    else if(tipomadeira == "carvalho"){
+        escrivaninhabase = escrivaninhabase + 300
+        escrivaninhabase = escrivaninhabase + (nmgavetas * 50)
+        alert("O preço da escrivaninha ficou: R$"+escrivaninhabase.toFixed(2))
+    }
+    else if(tipomadeira == "mogno"){
+        escrivaninhabase = escrivaninhabase + 200
+        escrivaninhabase = escrivaninhabase + (nmgavetas * 50)
+        alert("O preço da escrivaninha ficou: R$"+escrivaninhabase.toFixed(2))
+    }
+    else if(escrivaninhaarea > 1000){
+        escrivaninhabase = escrivaninhabase + 200
+        escrivaninhabase = escrivaninhabase + (nmgavetas * 50)
+        alert("O preço da escrivaninha ficou: R$"+escrivaninhabase.toFixed(2))
+    }
+    else {
+        escrivaninhabase = escrivaninhabase + (nmgavetas * 50)
+        alert("O preço da escrivaninha ficou: R$"+escrivaninhabase.toFixed(2))
+    }
+
+</script>

@@ -1,0 +1,53 @@
+<script>
+
+    // Criação do tipo abstrato de dados (TAD)
+    class Aluno {
+    
+    // Codificação do construtor
+    constructor(Ra, Nome, nota1, nota2) {
+        this.ra = ra;
+        this.nome = nome;
+        this.nota1 = nota1;
+        this.nota2 = nota2;
+    }
+    
+    // Função --> Método
+    calcularMedia() {
+        return (this.nota1 + this.nota2) / 2;
+        }
+    
+    // método para retornar a cituação do aluno
+    // verificar() {
+    // if (this.calcularMedia() >= 7) {
+    // return "Aprovado";
+    // }
+    // return "Reprovado";
+    // }
+  
+    // Operador Ternario
+    verificar() {
+        return this.calcularMedia() >= 7 ? "Aprovado" : "Reprovado";
+      }
+    }
+  
+    // Declarar variaveis
+    let lista = [];
+    let ra, nome, nota1, nota2;
+  
+    // Entrada de dados
+    for (let i = 0; i < 3; i++) {
+      ra = parseInt(prompt("Insira o RA"));
+      nome = prompt("Insira o Nome");
+      nota1 = Number(prompt("Insira a Nota 1"));
+      nota2 = Number(prompt("Insira a Nota 2"));
+      lista.push(new Aluno(ra, nome, nota1, nota2));
+    }
+  
+    // Impressão do nome, da média e da situação (aprovado ou reprovado)
+    for (let aluno of lista) {
+      console.log(aluno.nome);
+      console.log(aluno.calcularMedia());
+      console.log(aluno.verificar())
+    }
+    
+  </script>

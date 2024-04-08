@@ -1,0 +1,40 @@
+<meta charset="utf-8">
+<script>
+
+    //Aqui estão as variáveis que serão usadas e armazenadas
+    let nome, uniesteano, unianopassado, bonus
+
+    //Aqui é onde o usuário digitará as informações necessárias e elas são armazenadas em sua respectivas variáveis
+    nome = String(prompt("Informe o nome do Empregado: "))
+    uniesteano = Number(prompt("Informe o número de unidades produzidas neste ano por ele: "))
+    unianopassado = Number(prompt("Informe o número de unidades produzidas no ano passado por ele: "))
+
+    //Aqui começa os testes para saber qual bônus o empregado receberá, em todos os testes feitos nós testamos
+    //se a produção deste ano foi maior que a produção do ano passado e tiramos a diferença dos anos, 
+    //só muda o teste do tipo de bônus
+    if(uniesteano > unianopassado && uniesteano - unianopassado <= 1000) {
+        //Aqui definimos o valor do bônus de acordo com o teste acima e depois imprimimos ao usuário
+        bonus = 25.00
+        alert("O bônus de "+nome +" será de R$"+bonus)
+    }
+    else if(uniesteano > unianopassado && uniesteano - unianopassado >= 1001 && uniesteano - unianopassado <= 3000) {
+        //Aqui definimos o valor do bônus de acordo com o teste acima e depois imprimimos ao usuário
+        bonus = 50.00
+        alert("O bônus de "+nome +" será de R$"+bonus)
+    }
+    else if(uniesteano > unianopassado && uniesteano - unianopassado >= 3001 && uniesteano - unianopassado <= 6000) {
+    //Aqui definimos o valor do bônus de acordo com o teste acima e depois imprimimos ao usuário
+    bonus = 100.00
+    alert("O bônus de "+nome +" será de R$"+bonus) 
+    }
+    else if(uniesteano > unianopassado && uniesteano - unianopassado >= 6001) {
+    //Aqui definimos o valor do bônus de acordo com o teste acima e depois imprimimos ao usuário
+    bonus = 200.00
+    alert("O bônus de "+nome +" será de R$"+bonus)
+    }
+    //Caso nenhum dos casos acima funcione é porque ele não bateu a meta, então imprimimos no vídeo isso
+    else {
+        alert("A produção desse empregado este ano não foi maior que a do ano passado")
+    }
+
+</script>

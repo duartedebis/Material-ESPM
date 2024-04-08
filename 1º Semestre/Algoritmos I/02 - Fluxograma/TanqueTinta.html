@@ -1,0 +1,29 @@
+<!-- Considere o seguinte problema:
+João tem um tanque (formato cilíndrico) onde é armazenado combustível. A cada 5
+anos, esse tanque é pintado. João quer que você desenvolva um algoritmo para ajudá-lo
+a calcular a quantidade de latas de tinta e também o custo para pintar o tanque.
+Sabemos que:
+I) a lata de tinta custa R$ 220,00.
+II) cada lata tem 5 litros de tinta.
+III) cada litro de tinta pinta 3 metros quadrados.
+V) a área total do cilindro é: 2r(h+r), onde r é o raio do cilindro e h é a sua altura.-->
+
+<meta charset="utf-8">
+<script>
+
+    let qnt_tintas, custo_pintura, area_tanque, h, r
+
+    h = parseFloat(prompt('digite o valor da altura do tanque'))
+    r = parseFloat(prompt('digite o valor do raio do tanque'))
+
+    area_tanque = 2 * Math.PI * r * (h+r)
+
+    // cada lata tem 5 litros de tinta e cada litro de tinta pinta 3 metros quadrados - 5L = 15 m²
+    qnt_tintas = area_tanque / 15
+    
+    custo_pintura = qnt_tintas * 220.00
+
+    alert('a quantidade de tintas necessárias: ' + qnt_tintas.toFixed(2))
+    alert('o custo da pintura é: ' + custo_pintura.toFixed(2))
+
+</script>

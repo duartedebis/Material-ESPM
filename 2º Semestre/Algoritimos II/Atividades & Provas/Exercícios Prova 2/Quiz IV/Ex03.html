@@ -1,0 +1,17 @@
+<script>
+    const students = [
+        { name: 'Joao', grade: 56 },
+        { name: 'Maria', grade: 84 },
+        { name: 'Jose', grade: 100 },
+        { name: 'Leandro', grade: 65 },
+        { name: 'Ana', grade: 40 },
+        { name: 'Clara', grade: 90 }
+    ]
+
+    var result = students.filter(function(s){return s.grade >= 60})
+        .map(function(s) {return s.name})
+        .reduce(function(a, b) {return a + ', ' + b})
+        
+    console.log(result)
+
+</script>

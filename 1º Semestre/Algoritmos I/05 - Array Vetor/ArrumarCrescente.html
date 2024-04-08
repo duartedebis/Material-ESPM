@@ -1,0 +1,18 @@
+<script>
+
+    let x = [14, 40, 16, 22, 60]
+    let aux
+
+    for(let i = 0; i < x.length; i++){
+        for(let j = 0; j < x.length - 1; j++){
+            if(x[j] < x[j + 1]) {
+                aux = x[j]
+                x[j] = x[j + 1]
+                x[j + 1] = aux
+            }
+        }
+    }
+
+    alert(x)
+
+</script>

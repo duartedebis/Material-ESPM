@@ -1,0 +1,26 @@
+<script>
+
+    const transacoes = [
+        {tipo: 'receita', valor: 500},
+        {tipo: 'despesa', valor: 200},
+        {tipo: 'receita', valor: 100},
+        {tipo: 'receita', valor: 50},
+        {tipo: 'despesa', valor: 150},
+    ];
+
+    function calcularSaldoFinal (transacoes) {
+         return transacoes.reduce((saldo, transacao) => {
+            if (transacao.tipo === 'receita') {
+                return saldo + transacao.valor;
+            } 
+            else if (transacao.tipo === 'despesa') { 
+                return saldo - transacao.valor;
+            }
+        return saldo;
+    }, 0);
+    }
+
+    const saldoFinal = calcularSaldoFinal (transacoes); 
+console.log(`O saldo final é: ${saldoFinal}`);
+
+</script>

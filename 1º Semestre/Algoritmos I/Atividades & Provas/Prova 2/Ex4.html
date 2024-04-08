@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+<script>
+
+    let nome = []
+    let tempo = []
+    let melhortempo = 0
+    let melhornome = ""
+
+    let quantidade = parseInt(prompt("Quantos corredores estão participando?"))
+
+    for (let i = 0; i < quantidade; i++) {
+        nome[i] = prompt("Digite o nome do corredor:")
+        for (let j = 0; j < 3; j++) {
+            tempo[j] = parseFloat(prompt("Digite o tempo da volta: "))
+            if (j == 0) {
+                melhortempo = tempo[j]
+            } else if (tempo[j] < melhortempo) {
+                melhortempo = tempo[j];
+                melhornome = nome[i];
+            }
+        }
+    }
+    
+    console.log(`O corredor ${melhornome} ganhou, completou em ${melhortempo} minutos`)
+
+</script>

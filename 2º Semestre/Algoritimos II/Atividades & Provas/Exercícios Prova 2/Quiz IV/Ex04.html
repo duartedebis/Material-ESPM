@@ -1,0 +1,21 @@
+<script>
+
+    const carrinhoDeCompras = [
+        { produto: 'Notebook', preco: 2500, desconto: 0.1 },
+        { produto: 'Smartphone', preco: 800, desconto: 0.05 }, { produto: 'Fone de Ouvido', preco: 100, desconto: 0 },
+        { produto: 'Câmera', preco: 1200, desconto: 0.15 }
+    ];
+
+    const valorMinimo = 1000;
+
+    function calcularPrecoTotalFiltrado (carrinho, valorMinimo) {
+        return carrinho
+        .filter(produto => (produto.preco * (1 - produto.desconto)) > valorMinimo)
+        .map(produto => produto.preco * (1 - produto.desconto))
+        .reduce((total, precoComDesconto) => total + precoComDesconto, 0);
+    }
+
+    const precoTotalFiltrado = calcularPrecoTotalFiltrado (carrinhoDeCompras, valorMinimo); 
+    console.log(`O preço total com desconto após filtrar produtos é: $${precoTotalFiltrado.toFixed(2)}`);
+
+</script>

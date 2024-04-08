@@ -1,0 +1,123 @@
+use carloca;
+
+-- Geral veiculo fabricante
+Select *
+  from loc_veiculo v
+  inner join loc_cor c on v.cd_cor = c.cd_cor
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante;
+
+-- Agora vamos deixar apenas os nomes
+Select nr_placa, desc_cor, nm_modelo, nm_fabricante, vl_diaria
+  from loc_veiculo v
+  inner join loc_cor c on v.cd_cor = c.cd_cor
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante;
+  
+-- Valor médio das locações
+Select avg(vl_diaria)
+  from loc_veiculo v
+  inner join loc_cor c on v.cd_cor = c.cd_cor
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante;
+ 
+-- Valor médio das locações, por modelo
+Select nm_modelo, avg(vl_diaria)
+  from loc_veiculo v
+  inner join loc_cor c on v.cd_cor = c.cd_cor
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  group by nm_modelo;
+
+-- Valor médio das locações, por cor
+Select desc_cor, avg(vl_diaria)
+  from loc_veiculo v
+  inner join loc_cor c on v.cd_cor = c.cd_cor
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  group by desc_cor;
+  
+-- Valor médio e soma de valores de diária por fabricante quebrado por
+-- modelo e contagem de carros
+
+Select nm_fabricante, nm_modelo, avg(vl_diaria), sum(vl_diaria), count(*)
+  from loc_veiculo v
+  inner join loc_cor c on v.cd_cor = c.cd_cor
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  group by nm_fabricante, nm_modelo
+  order by nm_fabricante, nm_modelo;
+  
+-- Valor médio e soma de valores de diária por fabricante quebrado por
+-- modelo e contagem de carros, queremos somente carros com valor
+-- de diária superior a 120 
+
+Select nm_fabricante, nm_modelo, avg(vl_diaria), sum(vl_diaria), count(*)
+  from loc_veiculo v
+  inner join loc_cor c on v.cd_cor = c.cd_cor
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  where vl_diaria > 120
+  group by nm_fabricante, nm_modelo
+  order by nm_fabricante, nm_modelo;
+  
+-- Valor médio e soma de valores de diária por fabricante quebrado por
+-- modelo e contagem de carros, queremos somente carros com mais
+-- de 1 veículo
+
+Select nm_fabricante, nm_modelo, avg(vl_diaria), sum(vl_diaria), count(*)
+  from loc_veiculo v
+  inner join loc_cor c on v.cd_cor = c.cd_cor
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  group by nm_fabricante, nm_modelo
+  having count(*) > 1
+  order by nm_fabricante, nm_modelo;
+  
+-- Valor médio e soma de valores de diária por fabricante quebrado por
+-- modelo e contagem de carros, queremos somente carros com mais
+-- de 1 veículo e que seja da marca Fiat (código 2)
+
+-- Valor médio e soma de valores de diária por fabricante quebrado por
+-- modelo e contagem de carros, queremos somente carros com mais
+-- de 1 veículo
+
+Select nm_fabricante, nm_modelo, avg(vl_diaria), sum(vl_diaria), count(*)
+  from loc_veiculo v
+  inner join loc_cor c on v.cd_cor = c.cd_cor
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  where f.cd_fabricante = 2
+  group by nm_fabricante, nm_modelo
+  having count(*) > 1
+  order by nm_fabricante, nm_modelo;
+  
+-- Incluir cor na bagunça
+Select nm_fabricante, nm_modelo, desc_cor,
+	   avg(vl_diaria), sum(vl_diaria), count(*)
+  from loc_veiculo v
+  inner join loc_cor c on v.cd_cor = c.cd_cor
+  inner join loc_modelo m on v.cd_modelo = m.cd_modelo
+  inner join loc_fabricante f on m.cd_fabricante = f.cd_fabricante
+  group by nm_fabricante, nm_modelo, desc_cor
+  order by nm_fabricante, nm_modelo, desc_cor;
+  
+-- Quem ganha mais que a Adriana Doretto?
+Select cd_func, nm_func, vl_salario
+  from loc_funcionario
+  where cd_func = 4;
+  
+Select cd_func, nm_func, vl_salario
+  from loc_funcionario
+  where vl_salario > (7145.74);
+  
+Select vl_salario
+  from loc_funcionario
+  where cd_func = 4;
+  
+-- SubQuery
+Select cd_func, nm_func, vl_salario
+  from loc_funcionario
+  where vl_salario > (Select vl_salario
+                      from loc_funcionario
+					  where cd_func = 4);

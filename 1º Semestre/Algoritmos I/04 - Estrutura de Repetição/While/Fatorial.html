@@ -1,0 +1,19 @@
+<script>
+
+    let valor, fatorial, cont
+
+    valor = Number(prompt("informe um valor positivo: "))
+    if(valor < 0) {
+        alert ("o valor deve ser positivo")
+    }
+
+    else {
+        fatorial = cont = 1
+        while(cont <= valor) {
+            fatorial *= cont // fatorial = fatorial * cont
+            cont++ 
+        }
+        alert(valor + "! = " + fatorial)
+    }
+
+</script>

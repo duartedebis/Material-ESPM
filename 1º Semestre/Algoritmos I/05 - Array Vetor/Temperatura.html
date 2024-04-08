@@ -1,0 +1,23 @@
+<!-- Escreva um programa que leia a temperatura máxima diária da última
+semana (de domingo a sábado). Imprima no vídeo os dias em que a
+temperatura esteve acima da média da semana; -->
+
+<script>
+
+    let temperatura = newArray(7)
+    let dias = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+    let media
+
+    for(let i = 0; i < temperatura.length; i++){
+        temperatura[i] = parseFloat(prompt(`Insira a temperatura: `))
+    }
+
+    media = (temperatura[0] + temperatura[1] + temperatura[2] + temperatura[3] + temperatura[4] + temperatura[5] + temperatura[6]) / 7
+
+    for(let i = 0; i < temperatura.length; i++){
+        if(temperatura[i] > media){
+            alert(`A temperatura de ${dias[i]} está acima da média da semana`)
+        }
+    }
+    
+</script>

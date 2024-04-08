@@ -1,0 +1,48 @@
+<meta charset="utf-8">
+<script>
+
+    //Aqui está a variável que será usada para X e armazenada
+    let valorx
+    //Aqui estão as variáveis que serão usadas e armazenadas para facilitar nosso cálculo
+    let calculo1, calculo2, calculo3, calculo4, calculofinal
+
+    //Aqui é onde o usuário digitará o número que será usado em X e ele é armazenado em sua respectiva variável
+    valorx = Number(prompt("Informe o valor de X: "))
+
+    //Aqui, como a expressão matemática é muito grande, preferimos separa la em várias partes para que fique mais fácil
+    //nosso raciocínio ao calcula la
+    calculo1 = valorx / (valorx * valorx - 4)
+
+    calculo2 = (Math.pow(valorx,3) - 2) / 5
+
+    //Aqui precisamos verificar se nosso segundo cálculo deu negativo para deixar lo positivo, caso já seja positivo
+    //ele só continua
+    if(calculo2 < 0 ) {
+        calculo2 = calculo2 * -1
+        //Aqui continuamos nossos cálculos após ter convertido o cálculo 2 para positivo
+        calculo3 = Math.sqrt(calculo2)
+        calculo4 = 1 / (valorx * valorx)
+        calculofinal = calculo1 + calculo3 + calculo4
+        //Aqui indicamos ao usuário o valor final de sua conta se não for invalida, então testamos isso antes, caso
+        //seja invalida avisamos que não é possível ser realizada, senão apenas mostramos o resultado da conta
+        if(calculofinal == "Infinity" || calculofinal == "-Infinity" || calculofinal != Number(calculofinal)){
+            alert("Não é possível realizar a conta com o valor informado") 
+        } else {
+            alert("Valor de Y= " + calculofinal.toFixed(3)) //Apenas colocamos o .toFixed para limitar o tamanho da resposta
+        }
+    }
+    else {
+        //Aqui continuamos nossos cálculos já que o cálculo 2 já era positivo 
+        calculo3 = Math.sqrt(calculo2)
+        calculo4 = 1 / (valorx * valorx)
+        calculofinal = calculo1 + calculo3 + calculo4
+        //Aqui indicamos ao usuário o valor final de sua conta se não for invalida, então testamos isso antes, caso
+        //seja invalida avisamos que não é possível ser realizada, senão apenas mostramos o resultado da conta
+        if(calculofinal == "Infinity" || calculofinal == "-Infinity" || calculofinal != Number(calculofinal)){
+            alert("Não é possível realizar a conta com o valor informado")
+        } else {
+            alert("Valor de Y= " + calculofinal.toFixed(3)) //Apenas colocamos o .toFixed para limitar o tamanho da resposta
+        }
+    }
+
+</script>

@@ -1,0 +1,27 @@
+<script>
+
+    let v = new Array(10)
+    let i, j, k
+
+    i = 0
+    j = i
+    do{
+        v[i] = j
+        i++
+        j = i
+    } while(i < v.length)
+
+    j = 0
+    k = v.length - 1
+    do {
+        j += v[k]
+        console.log(v[k])
+        k--
+    } while(k >= 0)
+
+    if(j % 2 == 0){
+        console.log(j)
+    }
+
+
+</script>

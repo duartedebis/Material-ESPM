@@ -1,0 +1,79 @@
+use mydb;
+
+Select * 
+    from ssp;
+-- Quero saber de que estado é a SSP código 2
+   
+insert into ssp
+    (SSPCodi, SSPNome)
+values 
+    (1, 'SSP-RJ');
+    
+insert into ssp
+    (SSPCodi, SSPNome)
+values 
+    (2, 'SSP-RS');
+   
+insert into ssp
+    (SSPCodi, SSPNome)
+values 
+    (3, 'SSP-MT');
+    
+Select *
+    from ssp 
+    where sspcodi = 2;
+    
+-- Erramos, não é MG, mas MT no cóigo 3
+update ssp
+   set SSPNome = 'SSP-RS'
+   where sspcodi=2;
+  
+  -- Inserir MG código 4
+  
+insert into ssp
+    (SSPCodi, SSPNome)
+values 
+    (4, 'SSP-MG');
+  
+update ssp
+   set SSPNome = 'SSP-RJ'
+   where sspcodi=1;
+  
+-- Excluir código 4
+Delete
+    from ssp
+    where sspcodi = 4;
+    
+-- Vamos cadastrar o cliente José Urso
+insert into pessoa
+  (pescodi, pesnome, pescpf_, sspcodi)
+values
+  (1, 'João Urso','99999999', 5);
+-- ERRO não pode inserir com chave estrangeira inexistente
+
+insert into pessoa
+  (pescodi, pesnome, pescpf_, sspcodi)
+values
+  (1, 'João Urso','99999999', 3);
+  
+Select *
+  from pessoa;
+  
+Select *
+    from pessoa
+    where PesNome;
+  
+insert into pessoa
+  (pescodi, pesnome, pescpf_, sspcodi)
+values
+  (2, 'João Coelho','99999999', 1);
+  
+insert into pessoa
+  (pescodi, pesnome, pescpf_, sspcodi)
+values
+  (3, 'João Leão','99999999', 2);
+  
+insert into pessoa
+  (pescodi, pesnome, pescpf_, sspcodi)
+values
+  (4, 'João Tigrão','99999999', 3);

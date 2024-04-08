@@ -1,0 +1,13 @@
+<script>
+
+    let num1 = parseInt(prompt("Digite um número"))
+    let num2 = parseInt(prompt("Digite um maior que o anterior"))
+
+    if(num1 >= 0 && num2 > num1){ // Isso garante que os números sejam inteiros positivos e que num2 seja maior que num1
+        while(num1 <= num2){
+        document.write(num1 + "<br>")
+        num1 = num1 + 1 // Incrementa o valor de num1 em 1 a cada iteração do loop, para que o próximo número seja escrito na próxima iteração.
+        }
+    }
+
+</script>

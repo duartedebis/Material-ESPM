@@ -1,0 +1,32 @@
+<script>
+
+    // Construir um programa que seja capaz de embaralhar uma string s1 com uma string s2 e colocar
+    // o resultado em uma string s3. Para embaralhar S1 com S2 é necessário preencher os índices pares
+    // de S3 com os elementos de S1 e os ímpares com os elementos de S2 até que os elementos de
+    // uma das duas strings termine e os demais elementos de S3 serão preenchidos com os elementos
+    // da string restante. Por exemplo:
+    // Digite a string s1: local.
+    // Digite a string s2: misterio.
+    // Nova string s3: lmoicsatlerio.
+
+    let s1 = prompt("Digite uma frase: ")
+    let s2 = prompt("Digite uma frase: ")
+    let s3 = ""
+
+    let total = Math.min(s1.length, s2.length)
+
+    for(let i = 0; i < total; i++){
+        s3 += s1.charAt(i) // ímpar
+        s3 += s2.charAt(i) // par
+    }
+
+    if(s1.length > s2.length){
+        s3 += s1.substring(s1.length - s2.length, s1.length) // substring é uma função do js
+    }
+    else{
+        s3 += s2.substring(s2.length - s1.length, s2.length)
+    }
+
+    alert(s3)
+</script>
+

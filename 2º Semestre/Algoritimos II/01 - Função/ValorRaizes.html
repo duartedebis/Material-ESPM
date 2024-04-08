@@ -1,0 +1,32 @@
+// Escreva um programa em JavaScript para calcular as raízes de uma equação do segundo grau. 
+// O seu programa deverá ter uma função para calcular e retornar o valor do delta e também 
+// uma função para calcular e retornar as duas raízes da equação.
+
+<script>
+
+    let a = Number(prompt("Digite o valor de A"))
+    let b = Number(prompt("Digite o valor de B"))
+    let c = Number(prompt("Digite o valor de C"))
+
+    let delta = calcularDelta (a, b, c)
+    if(delta < 0){
+        alert("a equação não tem raiz real")
+    } else {
+        let raiz = calcularRaiz (a, b, delta)
+        alert("X1 = " + raiz[0] + "\nx2 = " + raiz[1]) // nx2 quebra de linha no alert
+    }
+
+    // função para calcular e retornar o delta
+    function calcularDelta (a, b, c) { // calcularDelta > chamando a função
+        return (b * b - 4 * a * c)
+    }
+
+    // função para calcular e retornar as raízes da equação
+    function calcularRaiz (a, b, delta) { // calcularRaiz > chamando a função
+        let raiz = new Array(2)
+        raiz[0] = (-b + Math.sqrt(delta)) / (2 * a)
+        raiz[1] = (-b - Math.sqrt(delta)) / (2 * a)
+        return raiz
+    }
+
+</script>

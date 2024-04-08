@@ -1,0 +1,42 @@
+// Escreva um programa em JavaScript que leia um vetor (lista) de 10 posições com valores 
+// inteiros e aleatórios. Em seguida, coloque os elementos do vetor em ordem crescente.
+// O programa deverá ter uma função para preencher a lista, uma função para ordenar a lista e 
+// outra função para fazer a impressão dos elementos da lista
+
+<script>
+
+    let lista = new Array (5)
+
+    preencherLista(lista)
+    imprimir(lista)
+    ordernar (lista)
+    imprimir(lista)
+
+    // função para preencher lista
+    function preencherLista(lista) {
+        for (let i = 0; i < lista.length; i++){
+            lista [i] = parseInt(Math.random() * 15)
+        }
+    }
+
+    // função para imprimir a lista
+    function imprimir (lista) {
+        for (let i = 0; i < lista.length; i++){
+            alert(lista[i])
+        }
+    }
+
+    // função para organizar a lista em ordem crescente
+    function ordernar(lista) {
+        let aux
+        for(let i = 0; i < lista.length; i++){
+            if(lista[i] > lista[i + 1]) {
+            aux = lista [i]
+            lista[i] = lista[i + 1]
+            lista[i + 1] = aux
+
+            }
+        }
+    }
+
+</script>

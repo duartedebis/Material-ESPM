@@ -1,0 +1,14 @@
+<script>
+
+    let palavra, palavraInvertida = '' // para tirar o undefined
+
+    palavra = prompt("Insira uma palavra:")
+    palavra = palavra.toLowerCase() // Converte os caracteres da string para minúsculo
+
+    for(let i = palavra.length - 1;i >= 0 ; i--){
+        palavraInvertida += palavra.charAt(i)
+    }
+    
+    document.write(palavraInvertida)
+    
+</script>
